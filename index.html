@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>令和8年法改正で人件費はどう変わるか｜アクエルド社会保険労務士法人</title>
+  <meta name="description" content="令和8年度の法改正で人件費はどう変わるか。確定済みの改正と今後のコスト増リスクを正確に切り分けて解説します。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;900&family=Noto+Serif+JP:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" />
+  <style>
+:root {
+  --accent:        #e8720c;
+  --accent-light:  #f5a45a;
+  --accent-dark:   #c9610a;
+  --accent-bg:     #fff5ec;
+  --dark:          #1a1a2e;
+  --dark2:         #16213e;
+  --navy:          #0f3460;
+  --text:          #1a1a2e;
+  --text-sub:      #555555;
+  --text-light:    #888888;
+  --border:        #e0e0e0;
+  --white:         #ffffff;
+  --light-gray:    #f4f4f4;
+  --shadow-sm:     0 2px 12px rgba(0,0,0,0.06);
+  --shadow-accent: 0 4px 20px rgba(232,114,12,0.2);
+  --radius:        12px;
+  --radius-sm:     8px;
+  --transition:    0.3s ease;
+  --future-color:  #185FA5;
+  --future-bg:     rgba(24,95,165,0.07);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body { font-family: 'Noto Sans JP', sans-serif; background: var(--white); color: var(--text); line-height: 1.8; overflow-x: hidden; -webkit-text-size-adjust: 100%; }
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; }
+.container { width: 100%; max-width: 900px; margin: 0 auto; padding: 0 20px; }
+.gold-text { color: var(--accent); }
+
+/* HEADER */
+.header { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; background: var(--dark); border-bottom: 3px solid var(--accent); transition: var(--transition); }
+.header.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.2); }
+.header-inner { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+.header-logo img { height: 40px; width: 40px; object-fit: cover; border-radius: 50%; }
+.header-nav ul { display: flex; gap: 22px; }
+.header-nav a { font-size: 0.83rem; font-weight: 500; color: rgba(255,255,255,0.8); letter-spacing: 0.04em; transition: color var(--transition); position: relative; }
+.header-nav a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: var(--accent); transition: width var(--transition); }
+.header-nav a:hover, .header-nav a.active { color: var(--white); }
+.header-nav a:hover::after, .header-nav a.active::after { width: 100%; }
+.hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 8px; }
+.hamburger span { display: block; width: 24px; height: 2px; background: var(--white); border-radius: 2px; transition: var(--transition); }
+.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* HERO */
+.hero { position: relative; min-height: 100vh; display: flex; align-items: center; padding: 100px 0 60px; background: linear-gradient(135deg, var(--dark) 0%, var(--dark2) 60%, var(--navy) 100%); overflow: hidden; }
+.hero-bg-pattern { position: absolute; inset: 0; background: radial-gradient(ellipse 60% 60% at 80% 50%, rgba(232,114,12,0.08) 0%, transparent 70%), radial-gradient(ellipse 40% 40% at 20% 80%, rgba(232,114,12,0.05) 0%, transparent 60%); pointer-events: none; }
+.hero-content { position: relative; z-index: 1; text-align: center; }
+.hero-badge { display: inline-block; padding: 6px 20px; border: 1px solid var(--accent); border-radius: 40px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.08em; color: var(--accent-light); margin-bottom: 28px; background: rgba(232,114,12,0.1); }
+.hero-title { font-family: 'Noto Serif JP', serif; font-size: clamp(1.8rem, 4.5vw, 3rem); font-weight: 700; line-height: 1.4; margin-bottom: 20px; color: var(--white); }
+.hero-title .gold-text { color: var(--accent-light); }
+.hero-sub { font-size: clamp(0.95rem, 2vw, 1.1rem); color: rgba(255,255,255,0.75); margin-bottom: 44px; line-height: 2; }
+
+.hero-status-wrap { display: flex; align-items: stretch; justify-content: center; gap: 16px; margin-bottom: 40px; flex-wrap: wrap; }
+.hero-status-card { border-radius: var(--radius); padding: 22px 28px; min-width: 240px; flex: 0 0 auto; text-align: left; transition: transform var(--transition); }
+.hero-status-card:hover { transform: translateY(-4px); }
+.card-confirmed { background: rgba(232,114,12,0.14); border: 1px solid rgba(232,114,12,0.4); border-top: 3px solid var(--accent); }
+.card-future    { background: rgba(24,95,165,0.14); border: 1px solid rgba(24,95,165,0.35); border-top: 3px solid #6baed6; }
+.status-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; margin-bottom: 12px; }
+.card-confirmed .status-label { color: var(--accent-light); }
+.card-future   .status-label { color: #6baed6; }
+.status-items { display: flex; flex-direction: column; gap: 8px; }
+.status-item { display: flex; align-items: flex-start; gap: 8px; font-size: 0.88rem; color: rgba(255,255,255,0.88); line-height: 1.5; }
+.status-dot { width: 6px; height: 6px; border-radius: 50%; margin-top: 6px; flex-shrink: 0; }
+.card-confirmed .status-dot { background: var(--accent-light); }
+.card-future   .status-dot { background: #6baed6; }
+
+.hero-cta-btn { display: inline-flex; align-items: center; gap: 10px; background: var(--accent); color: var(--white); font-weight: 700; font-size: 1.05rem; padding: 18px 44px; border-radius: 50px; letter-spacing: 0.04em; transition: transform var(--transition), box-shadow var(--transition), background var(--transition); box-shadow: var(--shadow-accent); }
+.hero-cta-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(232,114,12,0.35); background: var(--accent-dark); }
+.hero-scroll-hint { position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 8px; font-size: 0.65rem; letter-spacing: 0.2em; color: rgba(255,255,255,0.4); }
+.scroll-line { width: 1px; height: 36px; background: linear-gradient(to bottom, var(--accent), transparent); animation: scrollDown 1.8s ease-in-out infinite; }
+@keyframes scrollDown { 0% { transform: scaleY(0); transform-origin: top; } 50% { transform: scaleY(1); transform-origin: top; } 51% { transform: scaleY(1); transform-origin: bottom; } 100% { transform: scaleY(0); transform-origin: bottom; } }
+
+/* SECTIONS */
+.section { padding: 80px 0; }
+.confirmed-section { background: var(--white); }
+.future-section    { background: #f0f5ff; }
+.checklist-section { background: var(--light-gray); }
+.ai-bot-section    { background: var(--white); }
+.cta-section       { background: var(--dark); }
+
+.section-header { text-align: center; margin-bottom: 48px; }
+.section-label { display: inline-block; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.2em; color: var(--accent); border-bottom: 2px solid var(--accent); padding-bottom: 4px; margin-bottom: 14px; }
+.section-label.future { color: var(--future-color); border-color: var(--future-color); }
+.section-title { font-family: 'Noto Serif JP', serif; font-size: clamp(1.5rem, 3.2vw, 2.1rem); font-weight: 700; line-height: 1.4; margin-bottom: 12px; }
+.section-desc { font-size: 0.98rem; color: var(--text-sub); line-height: 1.9; }
+
+.status-banner { display: inline-flex; align-items: center; gap: 10px; padding: 8px 18px; border-radius: 50px; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.04em; margin-bottom: 14px; }
+.banner-confirmed { background: rgba(232,114,12,0.12); color: var(--accent-dark); border: 1px solid rgba(232,114,12,0.3); }
+.banner-future    { background: rgba(24,95,165,0.1); color: #0c447c; border: 1px solid rgba(24,95,165,0.25); }
+
+/* REVEAL */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.65s ease, transform 0.65s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* REFORM CARDS */
+.reform-list { display: flex; flex-direction: column; gap: 20px; }
+.reform-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-sm); }
+.reform-card.future-card { border: 1px solid rgba(24,95,165,0.25); }
+.reform-card-header { display: flex; align-items: flex-start; gap: 16px; padding: 22px 24px 18px; border-bottom: 1px solid var(--border); }
+.reform-icon { width: 46px; height: 46px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; margin-top: 2px; }
+.icon-confirmed { background: var(--accent-bg); color: var(--accent); }
+.icon-future    { background: rgba(24,95,165,0.1); color: var(--future-color); }
+.reform-header-text { flex: 1; min-width: 0; }
+.reform-card-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 6px; }
+.impact-tag { display: inline-flex; align-items: center; gap: 4px; font-size: 0.72rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; }
+.tag-confirmed { background: rgba(232,114,12,0.12); color: var(--accent-dark); border: 1px solid rgba(232,114,12,0.2); }
+.tag-future    { background: rgba(24,95,165,0.1); color: #0c447c; border: 1px solid rgba(24,95,165,0.2); }
+.tag-cost-down { background: #e1f5ee; color: #0F6E56; }
+.tag-cost-up   { background: #fff0e0; color: var(--accent-dark); border: 1px solid rgba(232,114,12,0.2); }
+.reform-title { font-size: 1.1rem; font-weight: 700; color: var(--text); line-height: 1.45; }
+.reform-card-body { padding: 20px 24px; }
+.reform-desc { font-size: 0.95rem; color: var(--text-sub); line-height: 1.85; margin-bottom: 16px; }
+
+.rate-change-box { display: flex; align-items: center; gap: 12px; padding: 16px 20px; background: var(--light-gray); border-radius: var(--radius-sm); margin-bottom: 16px; flex-wrap: wrap; }
+.rate-before, .rate-after { display: flex; flex-direction: column; align-items: center; gap: 3px; }
+.rate-label-text { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; }
+.rate-before .rate-label-text { color: var(--text-light); }
+.rate-after  .rate-label-text { color: var(--accent-dark); }
+.rate-num { font-size: 1.45rem; font-weight: 900; }
+.rate-before .rate-num { color: var(--text-light); text-decoration: line-through; text-decoration-color: #ccc; }
+.rate-after  .rate-num { color: var(--accent); }
+.rate-arrow { font-size: 1.2rem; color: var(--accent); flex-shrink: 0; }
+.rate-note { font-size: 0.8rem; color: var(--text-light); margin-left: auto; }
+
+.rate-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; margin-bottom: 16px; }
+.rate-table th { background: var(--dark); color: rgba(255,255,255,0.9); font-weight: 600; padding: 9px 12px; text-align: center; font-size: 0.82rem; }
+.rate-table th:first-child { text-align: left; }
+.rate-table td { padding: 10px 12px; border-bottom: 1px solid var(--border); }
+.rate-table td:not(:first-child) { text-align: center; }
+.rate-table tr:last-child td { border-bottom: none; }
+.rate-table tr:nth-child(even) td { background: var(--light-gray); }
+.rate-total { font-weight: 700; color: var(--accent); }
+
+.impact-points { display: flex; flex-direction: column; gap: 8px; }
+.impact-point { display: flex; align-items: flex-start; gap: 10px; font-size: 0.9rem; color: var(--text-sub); line-height: 1.65; }
+.impact-point i { flex-shrink: 0; margin-top: 3px; font-size: 0.75rem; }
+.impact-point.warn    i { color: #c0392b; }
+.impact-point.good    i { color: #27ae60; }
+.impact-point.info    i { color: var(--accent); }
+.impact-point.neutral i { color: var(--text-light); }
+
+.info-box { display: flex; gap: 12px; align-items: flex-start; padding: 14px 16px; border-radius: var(--radius-sm); font-size: 0.88rem; line-height: 1.7; margin-top: 12px; }
+.info-box.note   { background: var(--accent-bg); border-left: 3px solid var(--accent); color: var(--text-sub); }
+.info-box.warn   { background: #fff5f5; border-left: 3px solid #e74c3c; color: var(--text-sub); }
+.info-box.future { background: var(--future-bg); border-left: 3px solid var(--future-color); color: var(--text-sub); }
+.info-box i { flex-shrink: 0; margin-top: 2px; }
+.info-box.note   i { color: var(--accent); }
+.info-box.warn   i { color: #e74c3c; }
+.info-box.future i { color: var(--future-color); }
+
+.timeline-item { display: flex; gap: 14px; margin-bottom: 10px; }
+.timeline-dot { width: 10px; height: 10px; border-radius: 50%; margin-top: 6px; flex-shrink: 0; background: var(--future-color); }
+.timeline-text { font-size: 0.9rem; color: var(--text-sub); line-height: 1.65; }
+.timeline-text strong { color: var(--text); }
+
+/* CHECKLIST */
+.checklist-wrap { max-width: 720px; margin: 0 auto; }
+.progress-header { display: flex; align-items: center; gap: 16px; margin-bottom: 32px; padding: 18px 20px; background: var(--white); border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow-sm); }
+.progress-text { font-size: 1rem; font-weight: 700; white-space: nowrap; color: var(--text); min-width: 60px; }
+.progress-text span { color: var(--accent); font-size: 1.25rem; }
+.progress-bar-wrap { flex: 1; height: 10px; background: var(--border); border-radius: 10px; overflow: hidden; }
+.progress-bar { height: 100%; width: 0; background: linear-gradient(90deg, var(--accent), var(--accent-light)); border-radius: 10px; transition: width 0.4s ease; }
+
+.checklist-group { margin-bottom: 28px; }
+.cl-group-title { display: flex; align-items: center; gap: 8px; font-size: 0.82rem; font-weight: 700; letter-spacing: 0.06em; color: var(--white); background: var(--dark); padding: 10px 16px; border-radius: var(--radius-sm) var(--radius-sm) 0 0; }
+.cl-group-title i { color: var(--accent-light); }
+.cl-group-title.future { background: var(--future-color); }
+.cl-group-title.future i { color: rgba(255,255,255,0.7); }
+
+.cl-item { display: flex; align-items: center; gap: 14px; padding: 18px 20px; background: var(--white); border: 1px solid var(--border); border-top: none; cursor: pointer; transition: background var(--transition); user-select: none; }
+.cl-item:last-of-type { border-radius: 0 0 var(--radius-sm) var(--radius-sm); }
+.cl-item:hover { background: var(--light-gray); }
+.cl-item.checked { background: #f0faf0; }
+.cl-item.checked .cl-text strong { color: var(--text-light); text-decoration: line-through; }
+.cl-item input[type="checkbox"] { display: none; }
+.cl-custom-check { width: 28px; height: 28px; border: 2px solid var(--border); border-radius: 6px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: transparent; background: var(--white); transition: all 0.2s ease; }
+.cl-item.checked .cl-custom-check { background: #27ae60; border-color: #27ae60; color: var(--white); }
+.cl-text { flex: 1; min-width: 0; }
+.cl-text strong { display: block; font-size: 1rem; font-weight: 700; color: var(--text); margin-bottom: 2px; }
+.cl-text span { font-size: 0.83rem; color: var(--text-light); }
+.cl-priority { display: inline-flex; align-items: center; gap: 4px; font-size: 0.72rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; white-space: nowrap; flex-shrink: 0; }
+.cl-priority.high { background: #fdecea; color: #c0392b; border: 1px solid rgba(192,57,43,0.2); }
+.cl-priority.mid  { background: #fff5e0; color: #c77c00; border: 1px solid rgba(199,124,0,0.2); }
+.cl-priority.prep { background: rgba(24,95,165,0.1); color: #0c447c; border: 1px solid rgba(24,95,165,0.2); }
+
+.checklist-complete { display: none; align-items: center; gap: 16px; padding: 24px; background: linear-gradient(135deg, var(--accent), var(--accent-dark)); border-radius: var(--radius); margin-top: 28px; color: var(--white); }
+.checklist-complete.show { display: flex; }
+.complete-icon { font-size: 2rem; }
+.complete-text strong { display: block; font-size: 1.1rem; margin-bottom: 4px; }
+.complete-text p { font-size: 0.9rem; opacity: 0.85; }
+
+.reset-btn { display: flex; align-items: center; gap: 8px; margin-top: 24px; background: none; border: 1.5px solid var(--border); color: var(--text-light); padding: 10px 20px; border-radius: 6px; font-size: 0.88rem; cursor: pointer; transition: var(--transition); font-family: inherit; }
+.reset-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+/* AI BOT */
+.ai-bot-card { max-width: 720px; margin: 0 auto; background: var(--white); border: 1px solid rgba(0,0,0,0.08); border-top: 4px solid var(--accent); border-radius: var(--radius); padding: 40px 40px 32px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
+.ai-bot-header { display: flex; align-items: center; gap: 18px; margin-bottom: 20px; }
+.ai-bot-icon-wrap { width: 56px; height: 56px; background: var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: var(--white); flex-shrink: 0; }
+.ai-bot-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 4px; }
+.ai-bot-title { font-size: 1.4rem; font-weight: 700; color: var(--dark); }
+.ai-bot-desc { font-size: 0.95rem; color: rgba(0,0,0,0.7); line-height: 1.85; margin-bottom: 28px; padding-bottom: 24px; border-bottom: 1px solid rgba(0,0,0,0.1); }
+.ai-bot-features { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 28px; }
+.ai-bot-feature { display: flex; align-items: center; gap: 8px; padding: 10px 16px; background: rgba(0,0,0,0.04); border: 1px solid rgba(0,0,0,0.08); border-radius: 50px; font-size: 0.88rem; color: rgba(0,0,0,0.85); flex: 1; min-width: 180px; }
+.ai-bot-feature i { color: var(--accent); flex-shrink: 0; }
+.ai-bot-steps { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; padding: 20px 24px; background: rgba(232,114,12,0.08); border: 1px solid rgba(232,114,12,0.2); border-radius: var(--radius-sm); margin-bottom: 20px; }
+.ai-bot-step { display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: rgba(0,0,0,0.85); font-weight: 600; flex: 1; min-width: 140px; }
+.ai-step-num { width: 28px; height: 28px; background: var(--accent); color: var(--white); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.82rem; font-weight: 900; flex-shrink: 0; }
+.ai-step-arrow { font-size: 0.85rem; color: var(--accent); flex-shrink: 0; }
+.ai-bot-footer { text-align: center; font-size: 0.85rem; color: rgba(0,0,0,0.55); display: flex; align-items: center; justify-content: center; gap: 8px; }
+.ai-bot-footer i { color: var(--accent); }
+
+/* CTA */
+.cta-box { max-width: 680px; margin: 0 auto; text-align: center; padding: 60px 40px; }
+.cta-logo img { width: 72px; height: 72px; border-radius: 50%; margin: 0 auto 20px; }
+.cta-title { font-family: 'Noto Serif JP', serif; font-size: 1.5rem; font-weight: 700; color: var(--white); margin-bottom: 14px; }
+.cta-desc { font-size: 1rem; color: rgba(255,255,255,0.72); line-height: 2; margin-bottom: 28px; }
+.cta-badge-wrap { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+.cta-badge { display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: 50px; font-size: 0.92rem; color: rgba(255,255,255,0.85); font-weight: 600; }
+.cta-badge i { color: var(--accent-light); }
+
+/* FOOTER */
+.footer { background: var(--dark2); border-top: 1px solid rgba(255,255,255,0.08); padding: 32px 0; }
+.footer-inner { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+.footer-logo img { width: 40px; height: 40px; border-radius: 50%; opacity: 0.8; }
+.footer-info { flex: 1; }
+.footer-name { font-size: 0.9rem; font-weight: 600; color: rgba(255,255,255,0.75); }
+.footer-address { font-size: 0.78rem; color: rgba(255,255,255,0.45); margin-top: 2px; }
+.footer-copy { font-size: 0.72rem; color: rgba(255,255,255,0.35); }
+.pagetop { position: fixed; bottom: 28px; right: 24px; width: 48px; height: 48px; background: var(--accent); color: var(--white); border: none; border-radius: 50%; font-size: 1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow-accent); opacity: 0; transform: translateY(16px); transition: opacity 0.3s, transform 0.3s; z-index: 900; }
+.pagetop.show { opacity: 1; transform: translateY(0); }
+.pagetop:hover { background: var(--accent-dark); }
+
+/* RESPONSIVE */
+@media (max-width: 860px) {
+  .header-nav { display: none; }
+  .header-nav.open { display: flex; flex-direction: column; position: fixed; top: 64px; left: 0; width: 100%; height: calc(100vh - 64px); background: var(--dark); padding: 40px 24px; z-index: 999; overflow-y: auto; }
+  .header-nav.open ul { flex-direction: column; gap: 0; }
+  .header-nav.open a { display: block; font-size: 1.1rem; padding: 18px 0; border-bottom: 1px solid rgba(255,255,255,0.1); color: rgba(255,255,255,0.85); }
+  .hamburger { display: flex; }
+  .hero-status-wrap { flex-direction: column; align-items: center; }
+  .hero-status-card { min-width: 280px; width: 100%; max-width: 360px; }
+  .ai-bot-card { padding: 28px 20px 24px; }
+  .ai-bot-steps { flex-direction: column; align-items: flex-start; }
+  .ai-step-arrow { transform: rotate(90deg); align-self: center; }
+  .ai-bot-feature { min-width: 100%; }
+}
+@media (max-width: 640px) {
+  .hero-cta-btn { padding: 16px 28px; font-size: 1rem; }
+  .reform-card-header { flex-direction: column; gap: 10px; }
+  .cta-box { padding: 40px 20px; }
+  .footer-inner { flex-direction: column; text-align: center; }
+  .rate-table { font-size: 0.82rem; }
+  .rate-table th, .rate-table td { padding: 8px; }
+  .rate-note { display: none; }
+}
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header" id="header">
+  <div class="header-inner container">
+    <a href="#" class="header-logo"><img src="aslogo.png" alt="アクエルド社会保険労務士法人" /></a>
+    <nav class="header-nav" id="headerNav">
+      <ul>
+        <li><a href="#confirmed">確定改正</a></li>
+        <li><a href="#future">予定改正</a></li>
+        <li><a href="#checklist">対応チェック</a></li>
+        <li><a href="#contact">お問い合わせ</a></li>
+      </ul>
+    </nav>
+    <button class="hamburger" id="hamburger" aria-label="メニューを開く"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg-pattern"></div>
+  <div class="container hero-content">
+    <div class="hero-badge">令和8年度 法改正と人件費への影響</div>
+    <h1 class="hero-title">
+      令和8年法改正で<br />
+      人件費はどう変わるか<br />
+      <span class="gold-text">― 今やるべき対応と将来のコスト増 ―</span>
+    </h1>
+    <p class="hero-sub">
+      「施行確定」と「今後の予定」を正確に切り分けて解説。<br />
+      誤った情報で動く前に、まず事実を確認しましょう。
+    </p>
+
+    <div class="hero-status-wrap">
+      <div class="hero-status-card card-confirmed">
+        <div class="status-label">✔ 令和8年4月1日 施行確定</div>
+        <div class="status-items">
+          <div class="status-item"><div class="status-dot"></div><span>雇用保険料率の引き下げ</span></div>
+          <div class="status-item"><div class="status-dot"></div><span>在職老齢年金 基準額 65万円へ引き上げ</span></div>
+          <div class="status-item"><div class="status-dot"></div><span>協会けんぽ 介護保険料率 1.62%へ変更</span></div>
+        </div>
+      </div>
+      <div class="hero-status-card card-future">
+        <div class="status-label">▷ 令和8年度以降の予定改正（要注目）</div>
+        <div class="status-items">
+          <div class="status-item"><div class="status-dot"></div><span>雇用保険 週10時間〜 適用拡大（令和10年10月予定）</span></div>
+          <div class="status-item"><div class="status-dot"></div><span>社会保険 短時間労働者への段階的適用拡大（令和9年10月〜）</span></div>
+        </div>
+      </div>
+    </div>
+
+    <a href="#confirmed" class="hero-cta-btn">内容を確認する <i class="fas fa-chevron-down"></i></a>
+  </div>
+  <div class="hero-scroll-hint"><span>SCROLL</span><div class="scroll-line"></div></div>
+</section>
+
+<!-- 確定改正 -->
+<section class="section confirmed-section" id="confirmed">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="status-banner banner-confirmed"><i class="fas fa-check-circle"></i> 令和8年4月1日 施行確定</div>
+      <h2 class="section-title"><span class="gold-text">確定済み</span>の改正内容</h2>
+      <p class="section-desc">以下の3項目は令和8年4月1日より施行が確定しています。給与計算等の実務対応が必要です。</p>
+    </div>
+
+    <div class="reform-list">
+
+      <!-- 雇用保険料率 -->
+      <div class="reform-card reveal">
+        <div class="reform-card-header">
+          <div class="reform-icon icon-confirmed"><i class="fas fa-percentage"></i></div>
+          <div class="reform-header-text">
+            <div class="reform-card-tags">
+              <span class="impact-tag tag-confirmed"><i class="fas fa-check"></i> 施行確定</span>
+              <span class="impact-tag tag-cost-down"><i class="fas fa-arrow-down"></i> 料率引き下げ</span>
+            </div>
+            <div class="reform-title">雇用保険料率の引き下げ（雇用保険法）</div>
+          </div>
+        </div>
+        <div class="reform-card-body">
+          <p class="reform-desc">令和8年度の雇用保険料率が全事業種別で引き下げられます。<strong>4月分の給与計算から適用</strong>されるため、給与計算ソフトの設定変更が必要です。</p>
+          <table class="rate-table">
+            <thead><tr><th>事業の種類</th><th>労働者負担</th><th>事業主負担</th><th>合計（令和8年度）</th></tr></thead>
+            <tbody>
+              <tr><td>一般の事業</td><td>5/1000</td><td>8.5/1000</td><td class="rate-total">13.5/1000</td></tr>
+              <tr><td>農林水産・清酒製造</td><td>6/1000</td><td>9.5/1000</td><td class="rate-total">15.5/1000</td></tr>
+              <tr><td>建設の事業</td><td>6/1000</td><td>10.5/1000</td><td class="rate-total">16.5/1000</td></tr>
+            </tbody>
+          </table>
+          <div class="impact-points">
+            <div class="impact-point good"><i class="fas fa-check-circle"></i><span>事業主・労働者ともに負担が軽減されます。</span></div>
+            <div class="impact-point warn"><i class="fas fa-exclamation-triangle"></i><span><strong>4月分給与計算前に</strong>給与計算ソフトの料率設定を変更してください。変更忘れは控除額の誤りにつながります。</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 在職老齢年金 -->
+      <div class="reform-card reveal">
+        <div class="reform-card-header">
+          <div class="reform-icon icon-confirmed"><i class="fas fa-user-tie"></i></div>
+          <div class="reform-header-text">
+            <div class="reform-card-tags">
+              <span class="impact-tag tag-confirmed"><i class="fas fa-check"></i> 施行確定</span>
+            </div>
+            <div class="reform-title">在職老齢年金 支給停止基準額の引き上げ（厚生年金保険法）</div>
+          </div>
+        </div>
+        <div class="reform-card-body">
+          <p class="reform-desc">60歳以上で在職中の厚生年金被保険者が受け取る年金について、支給が一部停止される基準額（賃金と年金の合計月額）が引き上げられます。高齢者が年金を受給しながら働ける範囲が拡大します。</p>
+          <div class="rate-change-box">
+            <div class="rate-before"><div class="rate-label-text">改正前</div><div class="rate-num">月 50万円</div></div>
+            <div class="rate-arrow"><i class="fas fa-arrow-right"></i></div>
+            <div class="rate-after"><div class="rate-label-text">令和8年4月〜</div><div class="rate-num">月 65万円</div></div>
+            <div class="rate-note">を超えると一部支給停止</div>
+          </div>
+          <div class="impact-points">
+            <div class="impact-point good"><i class="fas fa-check-circle"></i><span>基準額が大幅に引き上げられ、高齢社員の就労継続・定年後再雇用がよりしやすくなります。</span></div>
+            <div class="impact-point info"><i class="fas fa-circle"></i><span>対象は60歳以上の在職厚生年金被保険者（および70歳以上の厚生年金非被保険者）。対象の在職社員へ改正内容を周知しましょう。</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 介護保険料率 -->
+      <div class="reform-card reveal">
+        <div class="reform-card-header">
+          <div class="reform-icon icon-confirmed"><i class="fas fa-hand-holding-heart"></i></div>
+          <div class="reform-header-text">
+            <div class="reform-card-tags">
+              <span class="impact-tag tag-confirmed"><i class="fas fa-check"></i> 施行確定</span>
+              <span class="impact-tag tag-cost-up"><i class="fas fa-arrow-up"></i> 料率引き上げ</span>
+            </div>
+            <div class="reform-title">介護保険料率の変更（協会けんぽ：令和8年4月分〜）</div>
+          </div>
+        </div>
+        <div class="reform-card-body">
+          <p class="reform-desc">協会けんぽ（全国健康保険協会）加入の事業所については、令和8年4月分の保険料から介護保険料率が変更されます。40歳以上65歳未満の従業員の控除額が変わります。</p>
+          <div class="rate-change-box">
+            <div class="rate-before"><div class="rate-label-text">令和7年度（協会けんぽ）</div><div class="rate-num">1.60%</div></div>
+            <div class="rate-arrow"><i class="fas fa-arrow-right"></i></div>
+            <div class="rate-after"><div class="rate-label-text">令和8年4月分〜</div><div class="rate-num">1.62%</div></div>
+            <div class="rate-note">労使折半（各0.81%）</div>
+          </div>
+          <div class="impact-points">
+            <div class="impact-point warn"><i class="fas fa-exclamation-triangle"></i><span><strong>4月分給与計算前に</strong>給与計算ソフトの介護保険料率を「1.62%」に変更してください。</span></div>
+            <div class="impact-point info"><i class="fas fa-circle"></i><span>40歳以上65歳未満の従業員が対象。手取り額がわずかに変わることを事前に周知することを推奨します。</span></div>
+          </div>
+          <div class="info-box note">
+            <i class="fas fa-info-circle"></i>
+            <span><strong>健康保険組合加入の場合は組合ごとに異なります。</strong>上記は協会けんぽの料率です。加入組合の案内を必ずご確認ください。</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- 予定改正 -->
+<section class="section future-section" id="future">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="status-banner banner-future"><i class="fas fa-clock"></i> 令和8年度以降に施行予定</div>
+      <h2 class="section-title" style="color:var(--future-color);">今後の<span style="color:var(--dark);">予定改正</span>｜早めに把握を</h2>
+      <p class="section-desc">以下の改正は<strong>令和8年度内の施行ではありません。</strong>ただし対応準備には時間がかかるため、今のうちに内容を正確に把握しておくことが重要です。</p>
+    </div>
+
+    <div class="reform-list">
+
+      <!-- 雇用保険週10時間 -->
+      <div class="reform-card future-card reveal">
+        <div class="reform-card-header">
+          <div class="reform-icon icon-future"><i class="fas fa-user-plus"></i></div>
+          <div class="reform-header-text">
+            <div class="reform-card-tags">
+              <span class="impact-tag tag-future"><i class="fas fa-clock"></i> 令和10年10月施行予定</span>
+            </div>
+            <div class="reform-title">雇用保険の適用拡大（週所定労働時間10時間以上へ）</div>
+          </div>
+        </div>
+        <div class="reform-card-body">
+          <p class="reform-desc">現行の「週20時間以上」という雇用保険の加入要件を「週10時間以上」に引き下げる改正が決まっています。ただし、<strong>施行日は令和10年（2028年）10月1日</strong>の予定です。令和8年度の施行ではありません。</p>
+          <div class="rate-change-box" style="background:var(--future-bg); border:1px solid rgba(24,95,165,0.2);">
+            <div class="rate-before"><div class="rate-label-text">現行</div><div class="rate-num" style="color:var(--text-light);">週20時間〜</div></div>
+            <div class="rate-arrow" style="color:var(--future-color);"><i class="fas fa-arrow-right"></i></div>
+            <div class="rate-after"><div class="rate-label-text" style="color:var(--future-color);">令和10年10月〜（予定）</div><div class="rate-num" style="color:var(--future-color);">週10時間〜</div></div>
+            <div class="rate-note">が加入対象に</div>
+          </div>
+          <div class="impact-points">
+            <div class="impact-point neutral"><i class="fas fa-circle"></i><span>週10〜19時間のパート・アルバイトを多く抱える事業所は、将来の保険料負担増加を見越して今のうちに影響人数を把握しておきましょう。</span></div>
+            <div class="impact-point neutral"><i class="fas fa-circle"></i><span>制度対応のシステム変更や周知には時間がかかります。早めの情報収集を推奨します。</span></div>
+          </div>
+          <div class="info-box future"><i class="fas fa-calendar-alt"></i><span>施行まで約2年半あります。弊所でも引き続き最新情報をお届けします。</span></div>
+        </div>
+      </div>
+
+      <!-- 社会保険段階的拡大 -->
+      <div class="reform-card future-card reveal">
+        <div class="reform-card-header">
+          <div class="reform-icon icon-future"><i class="fas fa-building"></i></div>
+          <div class="reform-header-text">
+            <div class="reform-card-tags">
+              <span class="impact-tag tag-future"><i class="fas fa-clock"></i> 令和9年10月〜段階的施行予定</span>
+              <span class="impact-tag" style="background:#fdecea;color:#c0392b;border:1px solid rgba(192,57,43,0.2);">影響大</span>
+            </div>
+            <div class="reform-title">短時間労働者への社会保険適用拡大（段階的実施）</div>
+          </div>
+        </div>
+        <div class="reform-card-body">
+          <p class="reform-desc">短時間労働者への社会保険（健康保険・厚生年金）の適用拡大は、企業規模要件を段階的に撤廃していく形で進みます。<strong>令和8年度内に「全事業所対象化」が行われるわけではありません。</strong></p>
+
+          <div class="info-box warn" style="margin-bottom:16px;">
+            <i class="fas fa-exclamation-triangle"></i>
+            <span>「令和8年10月から全事業所が対象」という情報が流通していますが、これは誤りです。スケジュールは以下のとおり段階的です。</span>
+          </div>
+
+          <div style="padding:16px 20px; background:var(--future-bg); border-radius:var(--radius-sm); margin-bottom:16px;">
+            <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-text"><strong>令和9年（2027年）10月〜予定：</strong>一定規模以上の企業から順次適用拡大</div></div>
+            <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-text"><strong>令和13年（2031年）10月〜予定：</strong>さらに適用範囲拡大</div></div>
+            <div class="timeline-item" style="margin-bottom:0;"><div class="timeline-dot"></div><div class="timeline-text"><strong>令和17年（2035年）10月〜予定：</strong>企業規模要件の完全撤廃</div></div>
+          </div>
+
+          <div class="impact-points">
+            <div class="impact-point neutral"><i class="fas fa-circle"></i><span>加入要件（週20時間以上・月額8.8万円以上・学生でないこと等）自体は変わりません。企業規模要件のみが段階的に撤廃されます。</span></div>
+            <div class="impact-point warn"><i class="fas fa-exclamation-triangle"></i><span>令和9年10月以降は対象範囲が広がる見込みです。<strong>今のうちに週20時間以上の短時間勤務者の実態を把握</strong>しておきましょう。</span></div>
+            <div class="impact-point neutral"><i class="fas fa-circle"></i><span>社会保険料の事業主負担（報酬の約15〜16%）が増える可能性があります。中長期の人件費計画に組み込んでおくことを推奨します。</span></div>
+          </div>
+
+          <div class="info-box future"><i class="fas fa-info-circle"></i><span>詳細なスケジュールや自社への影響については弊所へご相談ください。事業所の状況に応じた試算・対策をご提案します。</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- チェックリスト -->
+<section class="section checklist-section" id="checklist">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label">CHECKLIST</div>
+      <h2 class="section-title">対応<span class="gold-text">チェックリスト</span></h2>
+      <p class="section-desc">確定改正への実務対応と、今後の改正への準備事項をまとめました。</p>
+    </div>
+    <div class="checklist-wrap reveal">
+      <div class="progress-header">
+        <div class="progress-text"><span id="checkedCount">0</span> / <span id="totalCount">7</span> 完了</div>
+        <div class="progress-bar-wrap"><div class="progress-bar" id="progressBar"></div></div>
+      </div>
+
+      <div class="checklist-group">
+        <div class="cl-group-title"><i class="fas fa-check-circle"></i> 令和8年4月1日施行 ─ 今すぐ対応が必要</div>
+        <label class="cl-item" data-id="cl-1">
+          <input type="checkbox" id="cl-1" />
+          <span class="cl-custom-check"><i class="fas fa-check"></i></span>
+          <div class="cl-text"><strong>雇用保険料率を給与計算ソフトで変更する</strong><span>一般：13.5/1000 ／ 農林水産・清酒製造：15.5/1000 ／ 建設：16.5/1000</span></div>
+          <span class="cl-priority high">急ぎ</span>
+        </label>
+        <label class="cl-item" data-id="cl-2">
+          <input type="checkbox" id="cl-2" />
+          <span class="cl-custom-check"><i class="fas fa-check"></i></span>
+          <div class="cl-text"><strong>協会けんぽ加入の場合：介護保険料率を1.62%に変更する</strong><span>40歳以上65歳未満が対象 ／ 4月分給与計算前に設定変更</span></div>
+          <span class="cl-priority high">急ぎ</span>
+        </label>
+        <label class="cl-item" data-id="cl-3">
+          <input type="checkbox" id="cl-3" />
+          <span class="cl-custom-check"><i class="fas fa-check"></i></span>
+          <div class="cl-text"><strong>健保組合加入の場合：組合の令和8年度保険料率通知を確認する</strong><span>組合ごとに料率・改定時期が異なります</span></div>
+          <span class="cl-priority high">急ぎ</span>
+        </label>
+        <label class="cl-item" data-id="cl-4">
+          <input type="checkbox" id="cl-4" />
+          <span class="cl-custom-check"><i class="fas fa-check"></i></span>
+          <div class="cl-text"><strong>60歳以上の在職社員に在職老齢年金の改正内容を周知する</strong><span>支給停止基準額が月65万円に引き上げ ／ 就労継続の意向を確認</span></div>
+          <span class="cl-priority mid">4月中</span>
+        </label>
+      </div>
+
+      <div class="checklist-group">
+        <div class="cl-group-title future"><i class="fas fa-calendar-alt"></i> 今後の予定改正 ─ 今のうちに把握・準備を</div>
+        <label class="cl-item" data-id="cl-5">
+          <input type="checkbox" id="cl-5" />
+          <span class="cl-custom-check"><i class="fas fa-check"></i></span>
+          <div class="cl-text"><strong>週10〜19時間のパート・アルバイト数を把握しておく</strong><span>雇用保険 週10時間適用拡大は令和10年10月予定 ／ 影響人数を今のうちに試算</span></div>
+          <span class="cl-priority prep">R10年対応</span>
+        </label>
+        <label class="cl-item" data-id="cl-6">
+          <input type="checkbox" id="cl-6" />
+          <span class="cl-custom-check"><i class="fas fa-check"></i></span>
+          <div class="cl-text"><strong>週20時間以上・月8.8万円以上のパート等の人数を把握しておく</strong><span>社会保険適用拡大は令和9年10月〜段階的施行予定 ／ 影響人数・コスト試算を推奨</span></div>
+          <span class="cl-priority prep">R9年対応</span>
+        </label>
+        <label class="cl-item" data-id="cl-7">
+          <input type="checkbox" id="cl-7" />
+          <span class="cl-custom-check"><i class="fas fa-check"></i></span>
+          <div class="cl-text"><strong>社会保険加入増加による人件費増を中長期計画に組み込む</strong><span>事業主負担（約15〜16%）が増加する可能性 ／ 今のうちに経営者へ情報共有</span></div>
+          <span class="cl-priority prep">早期確認</span>
+        </label>
+      </div>
+
+      <div class="checklist-complete" id="checklistComplete">
+        <div class="complete-icon"><i class="fas fa-trophy"></i></div>
+        <div class="complete-text"><strong>すべての確認が完了しました！</strong><p>ご不明な点はお気軽にアクエルド社会保険労務士法人にご相談ください。</p></div>
+      </div>
+      <button class="reset-btn" id="resetBtn"><i class="fas fa-redo"></i> リセット</button>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section cta-section" id="contact">
+  <div class="container">
+    <div class="cta-box reveal">
+      <div class="cta-logo"><img src="aslogo.png" alt="アクエルド社会保険労務士法人" /></div>
+      <h2 class="cta-title">アクエルド社会保険労務士法人</h2>
+      <p class="cta-desc">法改正への対応や、社会保険・雇用保険の<br />手続きについてはお気軽にご連絡ください。</p>
+      <div class="cta-badge-wrap">
+        <div class="cta-badge"><i class="fas fa-phone"></i> 092-753-7550</div>
+        <div class="cta-badge"><i class="fas fa-clock"></i> 平日 9:00〜18:00</div>
+        <div class="cta-badge"><i class="fas fa-map-marker-alt"></i> 福岡市中央区舞鶴1-2-8 セントラルビル4F</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AI BOT -->
+<section class="section ai-bot-section">
+  <div class="container">
+    <div class="ai-bot-card reveal">
+      <div class="ai-bot-header">
+        <div class="ai-bot-icon-wrap"><i class="fas fa-robot"></i></div>
+        <div><div class="ai-bot-label">AI CHATBOT</div><h2 class="ai-bot-title">助成金相談AIボット</h2></div>
+      </div>
+      <p class="ai-bot-desc">「自社で使える助成金が知りたい」「要件をすぐ確認したい」—<br />弊所が監修した助成金専門AIが、24時間無料でお答えします。</p>
+      <div class="ai-bot-features">
+        <div class="ai-bot-feature"><i class="fas fa-lightbulb"></i><span>御社に合った助成金をご提案</span></div>
+        <div class="ai-bot-feature"><i class="fas fa-book-open"></i><span>要件・支給額をわかりやすく解説</span></div>
+        <div class="ai-bot-feature"><i class="fas fa-clipboard-check"></i><span>申請準備のアドバイスも</span></div>
+      </div>
+      <div class="ai-bot-steps">
+        <div class="ai-bot-step"><span class="ai-step-num">1</span>Chatworkでボットにメンション</div>
+        <i class="fas fa-chevron-right ai-step-arrow"></i>
+        <div class="ai-bot-step"><span class="ai-step-num">2</span>届いたリンクをクリック</div>
+        <i class="fas fa-chevron-right ai-step-arrow"></i>
+        <div class="ai-bot-step"><span class="ai-step-num">3</span>専用チャットで相談スタート</div>
+      </div>
+      <div class="ai-bot-footer"><i class="fas fa-infinity"></i> 24時間・何度でも・無料でご利用いただけます</div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <div class="footer-logo"><img src="aslogo.png" alt="アクエルド社会保険労務士法人" /></div>
+    <div class="footer-info"><p class="footer-name">アクエルド社会保険労務士法人</p><p class="footer-address">福岡市中央区舞鶴1-2-8 セントラルビル4F ｜ TEL 092-753-7550</p></div>
+    <div class="footer-copy"><p>&copy; 2025 アクエルド社会保険労務士法人 All Rights Reserved.</p></div>
+  </div>
+</footer>
+
+<button class="pagetop" id="pagetop" aria-label="ページトップへ"><i class="fas fa-chevron-up"></i></button>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const header = document.getElementById('header');
+  const pagetop = document.getElementById('pagetop');
+  function onScroll() { const y = window.scrollY; header.classList.toggle('scrolled', y > 60); pagetop.classList.toggle('show', y > 300); updateNavActive(); }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  pagetop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+  const hamburger = document.getElementById('hamburger');
+  const headerNav = document.getElementById('headerNav');
+  hamburger.addEventListener('click', () => { const o = hamburger.classList.toggle('open'); headerNav.classList.toggle('open', o); document.body.style.overflow = o ? 'hidden' : ''; });
+  headerNav.querySelectorAll('a').forEach(l => l.addEventListener('click', () => { hamburger.classList.remove('open'); headerNav.classList.remove('open'); document.body.style.overflow = ''; }));
+  document.addEventListener('click', e => { if (!header.contains(e.target) && headerNav.classList.contains('open')) { hamburger.classList.remove('open'); headerNav.classList.remove('open'); document.body.style.overflow = ''; } });
+
+  document.querySelectorAll('a[href^="#"]').forEach(a => { a.addEventListener('click', function(e) { const h = this.getAttribute('href'); if (h === '#') return; e.preventDefault(); const t = document.querySelector(h); if (t) window.scrollTo({ top: t.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' }); }); });
+
+  const navLinks = document.querySelectorAll('.header-nav a');
+  const navSecs = [];
+  navLinks.forEach(l => { const h = l.getAttribute('href'); if (h && h !== '#') { const s = document.querySelector(h); if (s) navSecs.push({ link: l, sec: s }); } });
+  function updateNavActive() { let cur = null; navSecs.forEach(({sec}) => { if (sec.getBoundingClientRect().top - 120 <= 0) cur = sec.id; }); navLinks.forEach(l => l.classList.toggle('active', cur && l.getAttribute('href') === `#${cur}`)); }
+  onScroll();
+
+  const revealEls = document.querySelectorAll('.reveal');
+  new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { const i = Array.from(revealEls).indexOf(e.target); setTimeout(() => e.target.classList.add('visible'), (i % 4) * 60); } }); }, { threshold: 0.08 }).observe && revealEls.forEach(el => new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { const i = Array.from(revealEls).indexOf(e.target); setTimeout(() => e.target.classList.add('visible'), (i % 4) * 60); new IntersectionObserver(() => {}).disconnect(); } }); }, { threshold: 0.08 }).observe(el));
+
+  const KEY = 'acuerdo_hokaiso_v2';
+  const items = document.querySelectorAll('.cl-item');
+  const cntEl = document.getElementById('checkedCount');
+  const totEl = document.getElementById('totalCount');
+  const bar   = document.getElementById('progressBar');
+  const done  = document.getElementById('checklistComplete');
+  const rst   = document.getElementById('resetBtn');
+  const total = items.length;
+  if (totEl) totEl.textContent = total;
+  function load() { try { return JSON.parse(localStorage.getItem(KEY)) || {}; } catch { return {}; } }
+  function save(s) { localStorage.setItem(KEY, JSON.stringify(s)); }
+  function update() { let n = 0; items.forEach(i => { if (i.classList.contains('checked')) n++; }); if (cntEl) cntEl.textContent = n; if (bar) bar.style.width = (total ? n/total*100 : 0) + '%'; if (done) done.classList.toggle('show', n === total && total > 0); }
+  const st = load();
+  items.forEach(item => {
+    const id = item.dataset.id;
+    const cb = document.getElementById(id);
+    if (st[id]) { item.classList.add('checked'); if (cb) cb.checked = true; }
+    item.addEventListener('click', e => { e.preventDefault(); const c = item.classList.toggle('checked'); if (cb) cb.checked = c; const s = load(); s[id] = c; save(s); update(); if (c) { item.style.transform = 'scale(1.01)'; setTimeout(() => { item.style.transform = ''; }, 180); } });
+  });
+  update();
+  if (rst) rst.addEventListener('click', () => { if (!confirm('チェックをすべてリセットしますか？')) return; items.forEach(i => { i.classList.remove('checked'); const cb = document.getElementById(i.dataset.id); if (cb) cb.checked = false; }); save({}); update(); });
+
+  const btn = document.querySelector('.hero-cta-btn');
+  if (btn) { const rs = document.createElement('style'); rs.textContent = '@keyframes rpl{to{transform:scale(3);opacity:0}}'; document.head.appendChild(rs); btn.addEventListener('click', function(e) { const r = document.createElement('span'); const rc = this.getBoundingClientRect(); const sz = Math.max(rc.width, rc.height); Object.assign(r.style, {position:'absolute',width:sz+'px',height:sz+'px',top:(e.clientY-rc.top-sz/2)+'px',left:(e.clientX-rc.left-sz/2)+'px',borderRadius:'50%',background:'rgba(255,255,255,0.3)',transform:'scale(0)',animation:'rpl 0.5s ease-out forwards',pointerEvents:'none'}); this.style.position='relative'; this.style.overflow='hidden'; this.appendChild(r); setTimeout(()=>r.remove(),600); }); }
+});
+</script>
+</body>
+</html>
