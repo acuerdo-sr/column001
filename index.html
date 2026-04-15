@@ -148,7 +148,7 @@ ul { list-style: none; }
 
 .impact-points { display: flex; flex-direction: column; gap: 8px; }
 .impact-point { display: flex; align-items: flex-start; gap: 10px; font-size: 0.9rem; color: var(--text-sub); line-height: 1.65; }
-.impact-point i { flex-shrink: 0; margin-top: 3px; font-size: 0.75rem; }
+.impact-point i { flex-shrink: 0; font-size: 0.85rem; display: inline-flex; align-items: center; justify-content: center; width: 1.1em; height: calc(0.9rem * 1.65); margin-top: 0; }
 .impact-point.warn    i { color: #c0392b; }
 .impact-point.good    i { color: #27ae60; }
 .impact-point.info    i { color: var(--accent); }
@@ -364,7 +364,7 @@ ul { list-style: none; }
       <div class="hero-status-card card-future">
         <div class="status-label">▷ 予定改正（要注目）</div>
         <div class="status-items">
-          <div class="status-item"><div class="status-dot"></div><span>短時間労働者への社会保険適用拡大（令和9年10月〜 段階的実施）</span></div>
+          <div class="status-item"><div class="status-dot"></div><span>短時間労働者への社会保険適用拡大（令和9年10月〜 企業規模別に段階的実施）</span></div>
           <div class="status-item"><div class="status-dot"></div><span>雇用保険 週10時間以上へ適用拡大（令和10年10月予定）</span></div>
         </div>
       </div>
@@ -424,6 +424,7 @@ ul { list-style: none; }
               <div class="impact-point good"><i class="fas fa-check-circle"></i><span>事業主・労働者ともに負担が軽減されます。</span></div>
               <div class="impact-point warn"><i class="fas fa-exclamation-triangle"></i><span><strong>4月分給与計算前に</strong>給与計算ソフトの料率設定を変更してください。変更忘れは控除額の誤りにつながります。</span></div>
             </div>
+            <div class="info-box note" style="margin-top:12px;"><i class="fas fa-external-link-alt"></i><span>出典：<a href="https://www.mhlw.go.jp/content/001672589.pdf" target="_blank" style="color:var(--accent);">厚生労働省「令和8年度 雇用保険料率のご案内」（PDF）</a></span></div>
           </div>
         </div>
       </div>
@@ -454,7 +455,7 @@ ul { list-style: none; }
             </div>
             <div class="impact-points">
               <div class="impact-point good"><i class="fas fa-check-circle"></i><span>基準額が大幅に引き上げられ、高齢社員の就労継続・定年後再雇用がよりしやすくなります。</span></div>
-              <div class="impact-point info"><i class="fas fa-circle"></i><span>対象は60歳以上の在職厚生年金被保険者（および70歳以上の厚生年金非被保険者）。対象の在職社員へ改正内容を周知しましょう。</span></div>
+
             </div>
             <div class="info-box note" style="margin-top:12px;"><i class="fas fa-external-link-alt"></i><span>出典：<a href="https://www.nenkin.go.jp/tokusetsu/zairoukaisei.html" target="_blank" style="color:var(--accent);">日本年金機構「在職老齢年金制度が改正されました」</a></span></div>
           </div>
@@ -632,21 +633,20 @@ ul { list-style: none; }
         <div class="acc-body" id="acc-shakai" hidden>
           <div class="acc-inner">
             <p class="reform-desc">短時間労働者への社会保険（健康保険・厚生年金）の適用拡大は、企業規模要件を段階的に撤廃していく形で進みます。<strong>令和8年度内に「全事業所対象化」が行われるわけではありません。</strong></p>
-            <div class="info-box warn" style="margin-bottom:16px;">
-              <i class="fas fa-exclamation-triangle"></i>
-              <span>「令和8年10月から全事業所が対象」という情報が流通していますが、これは誤りです。スケジュールは段階的です。</span>
-            </div>
+
             <div style="padding:16px 20px; background:var(--future-bg); border-radius:var(--radius-sm); margin-bottom:16px;">
-              <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-text"><strong>令和9年（2027年）10月〜予定：</strong>一定規模以上の企業から順次適用拡大</div></div>
-              <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-text"><strong>令和13年（2031年）10月〜予定：</strong>さらに適用範囲拡大</div></div>
-              <div class="timeline-item" style="margin-bottom:0;"><div class="timeline-dot"></div><div class="timeline-text"><strong>令和17年（2035年）10月〜予定：</strong>企業規模要件の完全撤廃</div></div>
+              <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-text"><strong>〜令和9年9月（現在）：</strong>従業員51人以上の事業所が対象</div></div>
+              <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-text"><strong>令和9年（2027年）10月〜：</strong>36人以上の事業所に拡大</div></div>
+              <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-text"><strong>令和11年（2029年）10月〜：</strong>21〜35人の事業所に拡大</div></div>
+              <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-text"><strong>令和14年（2032年）10月〜：</strong>11〜20人の事業所に拡大</div></div>
+              <div class="timeline-item" style="margin-bottom:0;"><div class="timeline-dot"></div><div class="timeline-text"><strong>令和17年（2035年）10月〜：</strong>10人以下の事業所に拡大（全事業所対象）</div></div>
             </div>
             <div class="impact-points">
-              <div class="impact-point neutral"><i class="fas fa-circle"></i><span>加入要件（週20時間以上・月額8.8万円以上・学生でないこと等）自体は変わりません。企業規模要件のみが段階的に撤廃されます。</span></div>
-              <div class="impact-point warn"><i class="fas fa-exclamation-triangle"></i><span>令和9年10月以降に対象範囲が広がる見込みです。<strong>今のうちに週20時間以上の短時間勤務者の実態を把握</strong>しておきましょう。</span></div>
+              <div class="impact-point info"><i class="fas fa-circle"></i><span>加入要件は「週20時間以上・学生でないこと」等。なお、<strong>月額8.8万円の賃金要件は令和8年10月に撤廃予定</strong>です。週20時間以上働いていれば原則加入対象となります。</span></div>
+              <div class="impact-point warn"><i class="fas fa-exclamation-triangle"></i><span>51〜36人規模の事業所は令和9年10月から対象に。<strong>週20時間以上勤務のパート等の人数と保険料負担額を今のうちに試算</strong>しておきましょう。</span></div>
               <div class="impact-point neutral"><i class="fas fa-circle"></i><span>社会保険料の事業主負担（報酬の約15〜16%）が増える可能性があります。中長期の人件費計画に組み込んでおくことを推奨します。</span></div>
             </div>
-            <div class="info-box future" style="margin-top:12px;"><i class="fas fa-info-circle"></i><span>詳細なスケジュールや自社への影響については弊所へご相談ください。</span></div>
+            <div class="info-box future" style="margin-top:12px;"><i class="fas fa-external-link-alt"></i><span>出典：<a href="https://www.mhlw.go.jp/tekiyoukakudai/jugyouin/taisho/" target="_blank" style="color:var(--future-color);">厚生労働省「社会保険加入の要件」社会保険適用拡大特設サイト</a></span></div>
           </div>
         </div>
       </div>
@@ -667,18 +667,19 @@ ul { list-style: none; }
         </button>
         <div class="acc-body" id="acc-koyoten" hidden>
           <div class="acc-inner">
-            <p class="reform-desc">現行の「週20時間以上」という雇用保険の加入要件を「週10時間以上」に引き下げる改正が決まっています。ただし、<strong>施行日は令和10年（2028年）10月1日の予定</strong>です。令和8年度の施行ではありません。</p>
+            <p class="reform-desc">雇用保険法等の一部を改正する法律（令和6年法律第26号）により、雇用保険の被保険者の加入要件のうち週所定労働時間が「20時間以上」から「10時間以上」に変更されることが決定しています。ただし、<strong>施行日は令和10年（2028年）10月1日</strong>です。令和8年度の施行ではありません。</p>
             <div class="rate-change-box" style="background:var(--future-bg); border:1px solid rgba(24,95,165,0.2);">
               <div class="rate-before"><div class="rate-label-text">現行</div><div class="rate-num" style="color:var(--text-light);">週20時間〜</div></div>
               <div class="rate-arrow" style="color:var(--future-color);"><i class="fas fa-arrow-right"></i></div>
-              <div class="rate-after"><div class="rate-label-text" style="color:var(--future-color);">R10.10〜（予定）</div><div class="rate-num" style="color:var(--future-color);">週10時間〜</div></div>
+              <div class="rate-after"><div class="rate-label-text" style="color:var(--future-color);">R10.10〜（施行決定）</div><div class="rate-num" style="color:var(--future-color);">週10時間〜</div></div>
               <div class="rate-note">が加入対象に</div>
             </div>
             <div class="impact-points">
-              <div class="impact-point neutral"><i class="fas fa-circle"></i><span>週10〜19時間のパート・アルバイトを多く抱える事業所は、将来の保険料負担増加を見越して今のうちに影響人数を把握しておきましょう。</span></div>
-              <div class="impact-point neutral"><i class="fas fa-circle"></i><span>制度対応のシステム変更や周知には時間がかかります。早めの情報収集を推奨します。</span></div>
+              <div class="impact-point warn"><i class="fas fa-exclamation-triangle"></i><span>週10〜19時間のパート・アルバイトを多く抱える事業所は影響が大きくなります。<strong>今のうちに対象人数を把握し、保険料負担額を試算</strong>しておきましょう。</span></div>
+              <div class="impact-point info"><i class="fas fa-circle"></i><span>被保険者期間の算定基準も変わります（賃金支払基礎日数6日以上→11日以上、または労働時間40時間以上→80時間以上）。給与システムの対応確認が必要になる見込みです。</span></div>
+              <div class="impact-point neutral"><i class="fas fa-circle"></i><span>施行まで約2年半ありますが、システム対応・周知・手続き準備には時間がかかります。早めの情報収集を推奨します。</span></div>
             </div>
-            <div class="info-box future" style="margin-top:12px;"><i class="fas fa-calendar-alt"></i><span>施行まで約2年半あります。弊所でも引き続き最新情報をお届けします。</span></div>
+            <div class="info-box future" style="margin-top:12px;"><i class="fas fa-external-link-alt"></i><span>出典：<a href="https://www.mhlw.go.jp/content/11601000/001542937.pdf" target="_blank" style="color:var(--future-color);">厚生労働省「令和6年雇用保険制度改正（令和10年10月1日施行分）について」（PDF）</a></span></div>
           </div>
         </div>
       </div>
@@ -752,7 +753,7 @@ ul { list-style: none; }
         <label class="cl-item" data-id="cl-8">
           <input type="checkbox" id="cl-8" />
           <span class="cl-custom-check"><i class="fas fa-check"></i></span>
-          <div class="cl-text"><strong>週20時間以上・月8.8万円以上のパート等の人数を把握しておく</strong><span>社会保険適用拡大は令和9年10月〜段階的施行予定 ／ 影響人数・コスト試算を推奨</span></div>
+          <div class="cl-text"><strong>週20時間以上のパート等の人数と保険料負担額を試算しておく</strong><span>社会保険適用拡大は令和9年10月〜企業規模別に段階的施行 ／ 月額8.8万円の賃金要件はR8.10撤廃予定</span></div>
           <span class="cl-priority prep">R9年対応</span>
         </label>
         <label class="cl-item" data-id="cl-9">
