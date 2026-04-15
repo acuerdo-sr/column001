@@ -89,7 +89,6 @@ ul { list-style: none; }
 /* SECTIONS */
 .section { padding: 80px 0; }
 .confirmed-section { background: var(--white); }
-.future-section    { background: #f0f5ff; }
 .checklist-section { background: var(--light-gray); }
 .ai-bot-section    { background: var(--white); }
 .cta-section       { background: var(--dark); }
@@ -269,6 +268,51 @@ ul { list-style: none; }
   .rate-table th, .rate-table td { padding: 8px; }
   .rate-note { display: none; }
 }
+/* ============================================
+   ALL REFORMS ACCORDION LIST
+   ============================================ */
+.all-acc-list { display: flex; flex-direction: column; gap: 10px; }
+
+/* 予定改正カードは左border青 */
+.acc-card-future {
+  border-left: 3px solid var(--future-color) !important;
+}
+.acc-card-future .acc-trigger:hover { background: var(--future-bg); }
+.acc-card-future .acc-trigger[aria-expanded="true"] { background: var(--future-bg); }
+
+/* ============================================
+   ACCORDION
+   ============================================ */
+.acc-card {
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: var(--radius); overflow: hidden;
+  box-shadow: var(--shadow-sm); margin-bottom: 12px;
+}
+.acc-trigger {
+  width: 100%; display: flex; align-items: center; justify-content: space-between;
+  padding: 18px 22px; background: none; border: none;
+  cursor: pointer; text-align: left; gap: 14px;
+  transition: background var(--transition); font-family: inherit;
+}
+.acc-trigger:hover { background: var(--light-gray); }
+.acc-trigger[aria-expanded="true"] { background: var(--accent-bg); }
+.acc-left { display: flex; align-items: flex-start; gap: 14px; flex: 1; min-width: 0; }
+.acc-icon {
+  width: 42px; height: 42px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1rem; flex-shrink: 0; margin-top: 2px;
+}
+.acc-text { flex: 1; min-width: 0; }
+.acc-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 5px; }
+.acc-title { font-size: 1rem; font-weight: 700; color: var(--text); line-height: 1.4; }
+.acc-chevron {
+  font-size: 0.85rem; color: var(--accent); flex-shrink: 0;
+  transition: transform 0.35s ease;
+}
+.acc-trigger[aria-expanded="true"] .acc-chevron { transform: rotate(180deg); }
+.acc-body { overflow: hidden; }
+.acc-body[hidden] { display: none; }
+.acc-inner { padding: 20px 22px 22px; background: var(--white); border-top: 1px solid var(--border); }
   </style>
 </head>
 <body>
@@ -279,8 +323,7 @@ ul { list-style: none; }
     <a href="#" class="header-logo"><img src="aslogo.png" alt="アクエルド社会保険労務士法人" /></a>
     <nav class="header-nav" id="headerNav">
       <ul>
-        <li><a href="#confirmed">確定改正</a></li>
-        <li><a href="#future">予定改正</a></li>
+        <li><a href="#confirmed">改正一覧</a></li>
         <li><a href="#checklist">対応チェック</a></li>
         <li><a href="#contact">お問い合わせ</a></li>
       </ul>
@@ -329,182 +372,315 @@ ul { list-style: none; }
   <div class="hero-scroll-hint"><span>SCROLL</span><div class="scroll-line"></div></div>
 </section>
 
-<!-- 確定改正 -->
-<section class="section confirmed-section" id="confirmed">
+<!-- 全改正一覧 -->
+<section class="section" id="confirmed" style="background:var(--white);">
   <div class="container">
     <div class="section-header reveal">
-      <div class="status-banner banner-confirmed"><i class="fas fa-check-circle"></i> 令和8年4月1日 施行確定</div>
-      <h2 class="section-title"><span class="gold-text">確定済み</span>の改正内容</h2>
-      <p class="section-desc">以下の3項目は令和8年4月1日より施行が確定しています。給与計算等の実務対応が必要です。</p>
+      <div class="section-label">ALL REFORMS</div>
+      <h2 class="section-title">令和8年度 <span class="gold-text">改正内容一覧</span></h2>
+      <p class="section-desc">施行が確定した改正と、今後予定されている改正をまとめて掲載しています。</p>
+      <div style="display:flex; align-items:center; gap:20px; justify-content:center; margin-top:16px; flex-wrap:wrap;">
+        <div style="display:flex; align-items:center; gap:8px; font-size:0.85rem; color:var(--text-sub);">
+          <span style="display:inline-block; width:12px; height:12px; border-radius:50%; background:var(--accent); flex-shrink:0;"></span>オレンジ：施行確定
+        </div>
+        <div style="display:flex; align-items:center; gap:8px; font-size:0.85rem; color:var(--text-sub);">
+          <span style="display:inline-block; width:12px; height:12px; border-radius:50%; background:var(--future-color); flex-shrink:0;"></span>ブルー：今後の予定改正
+        </div>
+      </div>
     </div>
 
-    <div class="reform-list">
+    <div class="all-acc-list reveal">
 
-      <!-- 雇用保険料率 -->
-      <div class="reform-card reveal">
-        <div class="reform-card-header">
-          <div class="reform-icon icon-confirmed"><i class="fas fa-percentage"></i></div>
-          <div class="reform-header-text">
-            <div class="reform-card-tags">
-              <span class="impact-tag tag-confirmed"><i class="fas fa-check"></i> 施行確定</span>
-              <span class="impact-tag tag-cost-down"><i class="fas fa-arrow-down"></i> 料率引き下げ</span>
+      <!-- ① 雇用保険料率 -->
+      <div class="acc-card">
+        <button class="acc-trigger" aria-expanded="false" aria-controls="acc-koyohoken">
+          <div class="acc-left">
+            <div class="acc-icon icon-confirmed"><i class="fas fa-percentage"></i></div>
+            <div class="acc-text">
+              <div class="acc-tags">
+                <span class="impact-tag tag-confirmed"><i class="fas fa-check"></i> R8.4.1 施行確定</span>
+                <span class="impact-tag tag-cost-down"><i class="fas fa-arrow-down"></i> 料率引き下げ</span>
+              </div>
+              <div class="acc-title">雇用保険料率の引き下げ（雇用保険法）</div>
             </div>
-            <div class="reform-title">雇用保険料率の引き下げ（雇用保険法）</div>
           </div>
-        </div>
-        <div class="reform-card-body">
-          <p class="reform-desc">令和8年度の雇用保険料率が全事業種別で引き下げられます。<strong>4月分の給与計算から適用</strong>されるため、給与計算ソフトの設定変更が必要です。</p>
-          <table class="rate-table">
-            <thead><tr><th>事業の種類</th><th>労働者負担</th><th>事業主負担</th><th>合計（令和8年度）</th></tr></thead>
-            <tbody>
-              <tr><td>一般の事業</td><td>5/1000</td><td>8.5/1000</td><td class="rate-total">13.5/1000</td></tr>
-              <tr><td>農林水産・清酒製造</td><td>6/1000</td><td>9.5/1000</td><td class="rate-total">15.5/1000</td></tr>
-              <tr><td>建設の事業</td><td>6/1000</td><td>10.5/1000</td><td class="rate-total">16.5/1000</td></tr>
-            </tbody>
-          </table>
-          <div class="impact-points">
-            <div class="impact-point good"><i class="fas fa-check-circle"></i><span>事業主・労働者ともに負担が軽減されます。</span></div>
-            <div class="impact-point warn"><i class="fas fa-exclamation-triangle"></i><span><strong>4月分給与計算前に</strong>給与計算ソフトの料率設定を変更してください。変更忘れは控除額の誤りにつながります。</span></div>
+          <i class="fas fa-chevron-down acc-chevron"></i>
+        </button>
+        <div class="acc-body" id="acc-koyohoken" hidden>
+          <div class="acc-inner">
+            <p class="reform-desc">令和8年度の雇用保険料率が全事業種別で引き下げられます。<strong>4月分の給与計算から適用</strong>されるため、給与計算ソフトの設定変更が必要です。</p>
+            <table class="rate-table">
+              <thead><tr><th>事業の種類</th><th>労働者負担</th><th>事業主負担</th><th>合計（令和8年度）</th></tr></thead>
+              <tbody>
+                <tr><td>一般の事業</td><td>5/1000</td><td>8.5/1000</td><td class="rate-total">13.5/1000</td></tr>
+                <tr><td>農林水産・清酒製造</td><td>6/1000</td><td>9.5/1000</td><td class="rate-total">15.5/1000</td></tr>
+                <tr><td>建設の事業</td><td>6/1000</td><td>10.5/1000</td><td class="rate-total">16.5/1000</td></tr>
+              </tbody>
+            </table>
+            <div class="impact-points">
+              <div class="impact-point good"><i class="fas fa-check-circle"></i><span>事業主・労働者ともに負担が軽減されます。</span></div>
+              <div class="impact-point warn"><i class="fas fa-exclamation-triangle"></i><span><strong>4月分給与計算前に</strong>給与計算ソフトの料率設定を変更してください。変更忘れは控除額の誤りにつながります。</span></div>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- 在職老齢年金 -->
-      <div class="reform-card reveal">
-        <div class="reform-card-header">
-          <div class="reform-icon icon-confirmed"><i class="fas fa-user-tie"></i></div>
-          <div class="reform-header-text">
-            <div class="reform-card-tags">
-              <span class="impact-tag tag-confirmed"><i class="fas fa-check"></i> 施行確定</span>
+      <!-- ② 在職老齢年金 -->
+      <div class="acc-card">
+        <button class="acc-trigger" aria-expanded="false" aria-controls="acc-zairo">
+          <div class="acc-left">
+            <div class="acc-icon icon-confirmed"><i class="fas fa-user-tie"></i></div>
+            <div class="acc-text">
+              <div class="acc-tags">
+                <span class="impact-tag tag-confirmed"><i class="fas fa-check"></i> R8.4.1 施行確定</span>
+                <span class="impact-tag" style="background:#f5f0ff;color:#5b21b6;">基準額引き上げ</span>
+              </div>
+              <div class="acc-title">在職老齢年金 支給停止基準額の引き上げ（厚生年金保険法）</div>
             </div>
-            <div class="reform-title">在職老齢年金 支給停止基準額の引き上げ（厚生年金保険法）</div>
           </div>
-        </div>
-        <div class="reform-card-body">
-          <p class="reform-desc">60歳以上で在職中の厚生年金被保険者が受け取る年金について、支給が一部停止される基準額（賃金と年金の合計月額）が引き上げられます。高齢者が年金を受給しながら働ける範囲が拡大します。</p>
-          <div class="rate-change-box">
-            <div class="rate-before"><div class="rate-label-text">改正前</div><div class="rate-num">月 50万円</div></div>
-            <div class="rate-arrow"><i class="fas fa-arrow-right"></i></div>
-            <div class="rate-after"><div class="rate-label-text">令和8年4月〜</div><div class="rate-num">月 65万円</div></div>
-            <div class="rate-note">を超えると一部支給停止</div>
-          </div>
-          <div class="impact-points">
-            <div class="impact-point good"><i class="fas fa-check-circle"></i><span>基準額が大幅に引き上げられ、高齢社員の就労継続・定年後再雇用がよりしやすくなります。</span></div>
-            <div class="impact-point info"><i class="fas fa-circle"></i><span>対象は60歳以上の在職厚生年金被保険者（および70歳以上の厚生年金非被保険者）。対象の在職社員へ改正内容を周知しましょう。</span></div>
+          <i class="fas fa-chevron-down acc-chevron"></i>
+        </button>
+        <div class="acc-body" id="acc-zairo" hidden>
+          <div class="acc-inner">
+            <p class="reform-desc">60歳以上で在職中の厚生年金被保険者が受け取る年金について、支給が一部停止される基準額（賃金と年金の合計月額）が引き上げられます。高齢者が年金を受給しながら働ける範囲が拡大します。</p>
+            <div class="rate-change-box">
+              <div class="rate-before"><div class="rate-label-text">改正前</div><div class="rate-num">月 50万円</div></div>
+              <div class="rate-arrow"><i class="fas fa-arrow-right"></i></div>
+              <div class="rate-after"><div class="rate-label-text">令和8年4月〜</div><div class="rate-num">月 65万円</div></div>
+              <div class="rate-note">を超えると一部支給停止</div>
+            </div>
+            <div class="impact-points">
+              <div class="impact-point good"><i class="fas fa-check-circle"></i><span>基準額が大幅に引き上げられ、高齢社員の就労継続・定年後再雇用がよりしやすくなります。</span></div>
+              <div class="impact-point info"><i class="fas fa-circle"></i><span>対象は60歳以上の在職厚生年金被保険者（および70歳以上の厚生年金非被保険者）。対象の在職社員へ改正内容を周知しましょう。</span></div>
+            </div>
+            <div class="info-box note" style="margin-top:12px;"><i class="fas fa-external-link-alt"></i><span>出典：<a href="https://www.nenkin.go.jp/tokusetsu/zairoukaisei.html" target="_blank" style="color:var(--accent);">日本年金機構「在職老齢年金制度が改正されました」</a></span></div>
           </div>
         </div>
       </div>
 
-      <!-- 介護保険料率 -->
-      <div class="reform-card reveal">
-        <div class="reform-card-header">
-          <div class="reform-icon icon-confirmed"><i class="fas fa-hand-holding-heart"></i></div>
-          <div class="reform-header-text">
-            <div class="reform-card-tags">
-              <span class="impact-tag tag-confirmed"><i class="fas fa-check"></i> 施行確定</span>
-              <span class="impact-tag tag-cost-up"><i class="fas fa-arrow-up"></i> 料率引き上げ</span>
+      <!-- ③ 女性活躍推進法 -->
+      <div class="acc-card">
+        <button class="acc-trigger" aria-expanded="false" aria-controls="acc-joshi">
+          <div class="acc-left">
+            <div class="acc-icon icon-confirmed"><i class="fas fa-venus"></i></div>
+            <div class="acc-text">
+              <div class="acc-tags">
+                <span class="impact-tag tag-confirmed"><i class="fas fa-check"></i> R8.4.1 施行確定</span>
+                <span class="impact-tag tag-duty">101人以上 対象</span>
+              </div>
+              <div class="acc-title">女性活躍推進法改正 ─ 情報公表義務の拡大</div>
             </div>
-            <div class="reform-title">介護保険料率の変更（協会けんぽ：令和8年4月分〜）</div>
           </div>
-        </div>
-        <div class="reform-card-body">
-          <p class="reform-desc">協会けんぽ（全国健康保険協会）加入の事業所については、令和8年4月分の保険料から介護保険料率が変更されます。40歳以上65歳未満の従業員の控除額が変わります。</p>
-          <div class="rate-change-box">
-            <div class="rate-before"><div class="rate-label-text">令和7年度（協会けんぽ）</div><div class="rate-num">1.60%</div></div>
-            <div class="rate-arrow"><i class="fas fa-arrow-right"></i></div>
-            <div class="rate-after"><div class="rate-label-text">令和8年4月分〜</div><div class="rate-num">1.62%</div></div>
-            <div class="rate-note">労使折半（各0.81%）</div>
-          </div>
-          <div class="impact-points">
-            <div class="impact-point warn"><i class="fas fa-exclamation-triangle"></i><span><strong>4月分給与計算前に</strong>給与計算ソフトの介護保険料率を「1.62%」に変更してください。</span></div>
-            <div class="impact-point info"><i class="fas fa-circle"></i><span>40歳以上65歳未満の従業員が対象。手取り額がわずかに変わることを事前に周知することを推奨します。</span></div>
-          </div>
-          <div class="info-box note">
-            <i class="fas fa-info-circle"></i>
-            <span><strong>健康保険組合加入の場合は組合ごとに異なります。</strong>上記は協会けんぽの料率です。加入組合の案内を必ずご確認ください。</span>
+          <i class="fas fa-chevron-down acc-chevron"></i>
+        </button>
+        <div class="acc-body" id="acc-joshi" hidden>
+          <div class="acc-inner">
+            <p class="reform-desc">令和8年4月1日から、<strong>従業員数101人以上の企業</strong>に対して「男女間賃金差異」および「女性管理職比率」の情報公表が義務付けられます（これまでは301人以上のみ）。</p>
+            <table class="rate-table" style="margin-bottom:16px;">
+              <thead><tr><th>企業規模</th><th>必須公表項目</th><th>公表項目数</th></tr></thead>
+              <tbody>
+                <tr><td>301人以上</td><td>男女間賃金差異・女性管理職比率</td><td>計4項目以上</td></tr>
+                <tr><td>101〜300人</td><td>男女間賃金差異・女性管理職比率（<strong>新設</strong>）</td><td>計3項目以上</td></tr>
+                <tr><td>100人以下</td><td>—</td><td>努力義務</td></tr>
+              </tbody>
+            </table>
+            <div class="impact-points">
+              <div class="impact-point warn"><i class="fas fa-exclamation-triangle"></i><span><strong>101〜300人規模の企業は今回初めて対象</strong>。施行後最初に終了する事業年度の実績を、次の事業年度開始後おおむね3か月以内に公表が必要です。</span></div>
+              <div class="impact-point info"><i class="fas fa-circle"></i><span>公表場所は「女性の活躍推進企業データベース」が推奨されています。自社HPへの掲載でも可。</span></div>
+            </div>
+            <div class="info-box note" style="margin-top:12px;"><i class="fas fa-external-link-alt"></i><span>出典：<a href="https://www.mhlw.go.jp/content/11900000/001663919.pdf" target="_blank" style="color:var(--accent);">厚生労働省「女性活躍推進法が改正されました」（PDF）</a></span></div>
           </div>
         </div>
       </div>
 
-    </div>
-  </div>
-</section>
-
-<!-- 予定改正 -->
-<section class="section future-section" id="future">
-  <div class="container">
-    <div class="section-header reveal">
-      <div class="status-banner banner-future"><i class="fas fa-clock"></i> 令和8年度以降に施行予定</div>
-      <h2 class="section-title" style="color:var(--future-color);">今後の<span style="color:var(--dark);">予定改正</span>｜早めに把握を</h2>
-      <p class="section-desc">以下の改正は<strong>令和8年度内の施行ではありません。</strong>ただし対応準備には時間がかかるため、今のうちに内容を正確に把握しておくことが重要です。</p>
-    </div>
-
-    <div class="reform-list">
-
-      <!-- 雇用保険週10時間 -->
-      <div class="reform-card future-card reveal">
-        <div class="reform-card-header">
-          <div class="reform-icon icon-future"><i class="fas fa-user-plus"></i></div>
-          <div class="reform-header-text">
-            <div class="reform-card-tags">
-              <span class="impact-tag tag-future"><i class="fas fa-clock"></i> 令和10年10月施行予定</span>
+      <!-- ④ 治療と就業の両立支援 -->
+      <div class="acc-card">
+        <button class="acc-trigger" aria-expanded="false" aria-controls="acc-ryoritsu">
+          <div class="acc-left">
+            <div class="acc-icon icon-confirmed"><i class="fas fa-heartbeat"></i></div>
+            <div class="acc-text">
+              <div class="acc-tags">
+                <span class="impact-tag tag-confirmed"><i class="fas fa-check"></i> R8.4.1 施行確定</span>
+                <span class="impact-tag" style="background:#f0f4ff;color:#1a3a8f;">努力義務</span>
+              </div>
+              <div class="acc-title">治療と就業の両立支援 ─ 事業主の努力義務化</div>
             </div>
-            <div class="reform-title">雇用保険の適用拡大（週所定労働時間10時間以上へ）</div>
           </div>
-        </div>
-        <div class="reform-card-body">
-          <p class="reform-desc">現行の「週20時間以上」という雇用保険の加入要件を「週10時間以上」に引き下げる改正が決まっています。ただし、<strong>施行日は令和10年（2028年）10月1日</strong>の予定です。令和8年度の施行ではありません。</p>
-          <div class="rate-change-box" style="background:var(--future-bg); border:1px solid rgba(24,95,165,0.2);">
-            <div class="rate-before"><div class="rate-label-text">現行</div><div class="rate-num" style="color:var(--text-light);">週20時間〜</div></div>
-            <div class="rate-arrow" style="color:var(--future-color);"><i class="fas fa-arrow-right"></i></div>
-            <div class="rate-after"><div class="rate-label-text" style="color:var(--future-color);">令和10年10月〜（予定）</div><div class="rate-num" style="color:var(--future-color);">週10時間〜</div></div>
-            <div class="rate-note">が加入対象に</div>
+          <i class="fas fa-chevron-down acc-chevron"></i>
+        </button>
+        <div class="acc-body" id="acc-ryoritsu" hidden>
+          <div class="acc-inner">
+            <p class="reform-desc">改正労働施策総合推進法により、<strong>令和8年4月1日から</strong>、がん等の病気を抱える労働者が治療しながら働き続けられるよう、事業主が就業環境を整備することが<strong>努力義務</strong>となります。</p>
+            <div class="impact-points">
+              <div class="impact-point info"><i class="fas fa-circle"></i><span>相談窓口の設置・休暇制度や勤務制度の整備（時間単位の有給休暇、病気休暇、テレワーク等）が求められます。</span></div>
+              <div class="impact-point info"><i class="fas fa-circle"></i><span>「両立支援コーディネーター」を社内で育成する取組も有効です。養成研修はウェブで無料受講可能。</span></div>
+              <div class="impact-point good"><i class="fas fa-check-circle"></i><span>都道府県産業保健総合支援センターで社労士等による無料相談・制度導入支援が受けられます。</span></div>
+            </div>
+            <div class="info-box note" style="margin-top:12px;"><i class="fas fa-external-link-alt"></i><span>出典：<a href="https://www.mhlw.go.jp/content/11200000/001667374.pdf" target="_blank" style="color:var(--accent);">厚生労働省「治療と就業の両立支援が努力義務になります」（PDF）</a></span></div>
           </div>
-          <div class="impact-points">
-            <div class="impact-point neutral"><i class="fas fa-circle"></i><span>週10〜19時間のパート・アルバイトを多く抱える事業所は、将来の保険料負担増加を見越して今のうちに影響人数を把握しておきましょう。</span></div>
-            <div class="impact-point neutral"><i class="fas fa-circle"></i><span>制度対応のシステム変更や周知には時間がかかります。早めの情報収集を推奨します。</span></div>
-          </div>
-          <div class="info-box future"><i class="fas fa-calendar-alt"></i><span>施行まで約2年半あります。弊所でも引き続き最新情報をお届けします。</span></div>
         </div>
       </div>
 
-      <!-- 社会保険段階的拡大 -->
-      <div class="reform-card future-card reveal">
-        <div class="reform-card-header">
-          <div class="reform-icon icon-future"><i class="fas fa-building"></i></div>
-          <div class="reform-header-text">
-            <div class="reform-card-tags">
-              <span class="impact-tag tag-future"><i class="fas fa-clock"></i> 令和9年10月〜段階的施行予定</span>
-              <span class="impact-tag" style="background:#fdecea;color:#c0392b;border:1px solid rgba(192,57,43,0.2);">影響大</span>
+      <!-- ⑤ 障害者法定雇用率 -->
+      <div class="acc-card">
+        <button class="acc-trigger" aria-expanded="false" aria-controls="acc-shogai">
+          <div class="acc-left">
+            <div class="acc-icon" style="background:rgba(15,110,86,0.1);color:#0F6E56;"><i class="fas fa-universal-access"></i></div>
+            <div class="acc-text">
+              <div class="acc-tags">
+                <span class="impact-tag tag-confirmed"><i class="fas fa-check"></i> R8.7.1 施行確定</span>
+                <span class="impact-tag tag-cost-up"><i class="fas fa-arrow-up"></i> 雇用率引き上げ</span>
+              </div>
+              <div class="acc-title">障害者法定雇用率 2.5% → 2.7% 引き上げ</div>
             </div>
-            <div class="reform-title">短時間労働者への社会保険適用拡大（段階的実施）</div>
           </div>
-        </div>
-        <div class="reform-card-body">
-          <p class="reform-desc">短時間労働者への社会保険（健康保険・厚生年金）の適用拡大は、企業規模要件を段階的に撤廃していく形で進みます。<strong>令和8年度内に「全事業所対象化」が行われるわけではありません。</strong></p>
-
-          <div class="info-box warn" style="margin-bottom:16px;">
-            <i class="fas fa-exclamation-triangle"></i>
-            <span>「令和8年10月から全事業所が対象」という情報が流通していますが、これは誤りです。スケジュールは以下のとおり段階的です。</span>
+          <i class="fas fa-chevron-down acc-chevron"></i>
+        </button>
+        <div class="acc-body" id="acc-shogai" hidden>
+          <div class="acc-inner">
+            <p class="reform-desc">令和8年7月1日から、民間企業の障害者法定雇用率が<strong>2.5%から2.7%</strong>に引き上げられます（令和6年4月に2.3%→2.5%に引き上げ済み）。対象事業主の範囲も変更されます。</p>
+            <div class="rate-change-box">
+              <div class="rate-before"><div class="rate-label-text">R6年4月〜</div><div class="rate-num">2.5%</div></div>
+              <div class="rate-arrow"><i class="fas fa-arrow-right"></i></div>
+              <div class="rate-after"><div class="rate-label-text">R8年7月〜</div><div class="rate-num">2.7%</div></div>
+              <div class="rate-note">（対象：常用労働者37.5人以上）</div>
+            </div>
+            <div class="impact-points">
+              <div class="impact-point warn"><i class="fas fa-exclamation-triangle"></i><span>対象範囲が「40人以上」から<strong>「37.5人以上」</strong>に拡大。これまで対象外だった事業所も対象になる場合があります。</span></div>
+              <div class="impact-point info"><i class="fas fa-circle"></i><span>雇用率を満たさない場合は障害者雇用納付金が発生します。7月分からの算定に注意してください。</span></div>
+              <div class="impact-point good"><i class="fas fa-check-circle"></i><span>各種助成金や相談支援制度も充実しています。まずは事業所管轄のハローワークへご相談ください。</span></div>
+            </div>
+            <div class="info-box note" style="margin-top:12px;"><i class="fas fa-external-link-alt"></i><span>出典：<a href="https://www.mhlw.go.jp/content/001064502.pdf" target="_blank" style="color:var(--accent);">厚生労働省「障害者の法定雇用率引上げと支援策の強化」（PDF）</a></span></div>
           </div>
-
-          <div style="padding:16px 20px; background:var(--future-bg); border-radius:var(--radius-sm); margin-bottom:16px;">
-            <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-text"><strong>令和9年（2027年）10月〜予定：</strong>一定規模以上の企業から順次適用拡大</div></div>
-            <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-text"><strong>令和13年（2031年）10月〜予定：</strong>さらに適用範囲拡大</div></div>
-            <div class="timeline-item" style="margin-bottom:0;"><div class="timeline-dot"></div><div class="timeline-text"><strong>令和17年（2035年）10月〜予定：</strong>企業規模要件の完全撤廃</div></div>
-          </div>
-
-          <div class="impact-points">
-            <div class="impact-point neutral"><i class="fas fa-circle"></i><span>加入要件（週20時間以上・月額8.8万円以上・学生でないこと等）自体は変わりません。企業規模要件のみが段階的に撤廃されます。</span></div>
-            <div class="impact-point warn"><i class="fas fa-exclamation-triangle"></i><span>令和9年10月以降は対象範囲が広がる見込みです。<strong>今のうちに週20時間以上の短時間勤務者の実態を把握</strong>しておきましょう。</span></div>
-            <div class="impact-point neutral"><i class="fas fa-circle"></i><span>社会保険料の事業主負担（報酬の約15〜16%）が増える可能性があります。中長期の人件費計画に組み込んでおくことを推奨します。</span></div>
-          </div>
-
-          <div class="info-box future"><i class="fas fa-info-circle"></i><span>詳細なスケジュールや自社への影響については弊所へご相談ください。事業所の状況に応じた試算・対策をご提案します。</span></div>
         </div>
       </div>
 
-    </div>
+      <!-- ⑥ カスタマーハラスメント -->
+      <div class="acc-card">
+        <button class="acc-trigger" aria-expanded="false" aria-controls="acc-kasu">
+          <div class="acc-left">
+            <div class="acc-icon" style="background:#fff5f5;color:#c0392b;"><i class="fas fa-shield-alt"></i></div>
+            <div class="acc-text">
+              <div class="acc-tags">
+                <span class="impact-tag tag-confirmed"><i class="fas fa-check"></i> R8.10.1 施行確定</span>
+                <span class="impact-tag" style="background:var(--light-gray);color:var(--text-sub);">義務化・全事業所</span>
+              </div>
+              <div class="acc-title">カスタマーハラスメント対策の義務化</div>
+            </div>
+          </div>
+          <i class="fas fa-chevron-down acc-chevron"></i>
+        </button>
+        <div class="acc-body" id="acc-kasu" hidden>
+          <div class="acc-inner">
+            <p class="reform-desc">改正労働施策総合推進法により、令和8年10月1日から<strong>全ての事業主</strong>に、顧客等からの著しい迷惑行為（カスタマーハラスメント）への対策措置を講じることが義務付けられます。</p>
+            <div class="impact-points">
+              <div class="impact-point warn"><i class="fas fa-exclamation-triangle"></i><span><strong>全業種・全規模の事業主が対象</strong>。小規模事業所も例外ではありません。</span></div>
+              <div class="impact-point info"><i class="fas fa-circle"></i><span>必須の措置：①カスハラへの方針明確化と周知・啓発、②相談窓口の整備、③事後の迅速な対応体制の構築。</span></div>
+              <div class="impact-point info"><i class="fas fa-circle"></i><span>電話・SNS等のオンラインでの言動も対象に含まれます。</span></div>
+              <div class="impact-point good"><i class="fas fa-check-circle"></i><span>就業規則へのカスハラ対応方針の明記と、従業員向けの研修実施を検討してください。</span></div>
+            </div>
+            <div class="info-box note" style="margin-top:12px;"><i class="fas fa-external-link-alt"></i><span>出典：<a href="https://www.mhlw.go.jp/content/001662630.pdf" target="_blank" style="color:var(--accent);">厚生労働省「カスタマーハラスメント対策が義務化されます」（PDF）</a></span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ⑦ 国民年金育児免除（予定） -->
+      <div class="acc-card acc-card-future">
+        <button class="acc-trigger" aria-expanded="false" aria-controls="acc-ikuji">
+          <div class="acc-left">
+            <div class="acc-icon icon-future"><i class="fas fa-baby"></i></div>
+            <div class="acc-text">
+              <div class="acc-tags">
+                <span class="impact-tag tag-future"><i class="fas fa-clock"></i> R8.10〜 施行予定</span>
+              </div>
+              <div class="acc-title">国民年金保険料の育児免除制度スタート（第1号被保険者）</div>
+            </div>
+          </div>
+          <i class="fas fa-chevron-down acc-chevron" style="color:var(--future-color);"></i>
+        </button>
+        <div class="acc-body" id="acc-ikuji" hidden>
+          <div class="acc-inner">
+            <p class="reform-desc">令和8年10月から、<strong>国民年金第1号被保険者（自営業者・フリーランス・アルバイト・無職の方等）</strong>も、育児のための保険料免除制度が利用できるようになります。</p>
+            <div class="impact-points">
+              <div class="impact-point info"><i class="fas fa-circle"></i><span>実子・養子を育てている父母が対象。申請することで<strong>月額17,920円（令和8年度）の保険料が免除</strong>されます。</span></div>
+              <div class="impact-point info"><i class="fas fa-circle"></i><span>対象期間はお子さんが1歳になる誕生日の前月まで。将来の年金額は納付した場合と同じように反映されます。</span></div>
+              <div class="impact-point good"><i class="fas fa-check-circle"></i><span>申請はマイナポータルからスマホで電子申請可能。手続きが必要です（自動適用ではありません）。</span></div>
+            </div>
+            <div class="info-box future" style="margin-top:12px;"><i class="fas fa-external-link-alt"></i><span>出典：<a href="https://www.nenkin.go.jp/tokusetsu/ikujimenjo.files/ikumensyuuchi.pdf" target="_blank" style="color:var(--future-color);">日本年金機構「国民年金保険料の育児免除制度が始まります」（PDF）</a></span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ⑧ 社会保険段階的拡大（予定） -->
+      <div class="acc-card acc-card-future">
+        <button class="acc-trigger" aria-expanded="false" aria-controls="acc-shakai">
+          <div class="acc-left">
+            <div class="acc-icon icon-future"><i class="fas fa-building"></i></div>
+            <div class="acc-text">
+              <div class="acc-tags">
+                <span class="impact-tag tag-future"><i class="fas fa-clock"></i> R9.10〜 段階的施行予定</span>
+                <span class="impact-tag" style="background:#fdecea;color:#c0392b;border:1px solid rgba(192,57,43,0.2);">影響大</span>
+              </div>
+              <div class="acc-title">短時間労働者への社会保険適用拡大（段階的実施）</div>
+            </div>
+          </div>
+          <i class="fas fa-chevron-down acc-chevron" style="color:var(--future-color);"></i>
+        </button>
+        <div class="acc-body" id="acc-shakai" hidden>
+          <div class="acc-inner">
+            <p class="reform-desc">短時間労働者への社会保険（健康保険・厚生年金）の適用拡大は、企業規模要件を段階的に撤廃していく形で進みます。<strong>令和8年度内に「全事業所対象化」が行われるわけではありません。</strong></p>
+            <div class="info-box warn" style="margin-bottom:16px;">
+              <i class="fas fa-exclamation-triangle"></i>
+              <span>「令和8年10月から全事業所が対象」という情報が流通していますが、これは誤りです。スケジュールは段階的です。</span>
+            </div>
+            <div style="padding:16px 20px; background:var(--future-bg); border-radius:var(--radius-sm); margin-bottom:16px;">
+              <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-text"><strong>令和9年（2027年）10月〜予定：</strong>一定規模以上の企業から順次適用拡大</div></div>
+              <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-text"><strong>令和13年（2031年）10月〜予定：</strong>さらに適用範囲拡大</div></div>
+              <div class="timeline-item" style="margin-bottom:0;"><div class="timeline-dot"></div><div class="timeline-text"><strong>令和17年（2035年）10月〜予定：</strong>企業規模要件の完全撤廃</div></div>
+            </div>
+            <div class="impact-points">
+              <div class="impact-point neutral"><i class="fas fa-circle"></i><span>加入要件（週20時間以上・月額8.8万円以上・学生でないこと等）自体は変わりません。企業規模要件のみが段階的に撤廃されます。</span></div>
+              <div class="impact-point warn"><i class="fas fa-exclamation-triangle"></i><span>令和9年10月以降に対象範囲が広がる見込みです。<strong>今のうちに週20時間以上の短時間勤務者の実態を把握</strong>しておきましょう。</span></div>
+              <div class="impact-point neutral"><i class="fas fa-circle"></i><span>社会保険料の事業主負担（報酬の約15〜16%）が増える可能性があります。中長期の人件費計画に組み込んでおくことを推奨します。</span></div>
+            </div>
+            <div class="info-box future" style="margin-top:12px;"><i class="fas fa-info-circle"></i><span>詳細なスケジュールや自社への影響については弊所へご相談ください。</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ⑨ 雇用保険週10時間（予定） -->
+      <div class="acc-card acc-card-future">
+        <button class="acc-trigger" aria-expanded="false" aria-controls="acc-koyoten">
+          <div class="acc-left">
+            <div class="acc-icon icon-future"><i class="fas fa-user-plus"></i></div>
+            <div class="acc-text">
+              <div class="acc-tags">
+                <span class="impact-tag tag-future"><i class="fas fa-clock"></i> R10.10〜 施行予定</span>
+              </div>
+              <div class="acc-title">雇用保険の適用拡大（週所定労働時間10時間以上へ）</div>
+            </div>
+          </div>
+          <i class="fas fa-chevron-down acc-chevron" style="color:var(--future-color);"></i>
+        </button>
+        <div class="acc-body" id="acc-koyoten" hidden>
+          <div class="acc-inner">
+            <p class="reform-desc">現行の「週20時間以上」という雇用保険の加入要件を「週10時間以上」に引き下げる改正が決まっています。ただし、<strong>施行日は令和10年（2028年）10月1日の予定</strong>です。令和8年度の施行ではありません。</p>
+            <div class="rate-change-box" style="background:var(--future-bg); border:1px solid rgba(24,95,165,0.2);">
+              <div class="rate-before"><div class="rate-label-text">現行</div><div class="rate-num" style="color:var(--text-light);">週20時間〜</div></div>
+              <div class="rate-arrow" style="color:var(--future-color);"><i class="fas fa-arrow-right"></i></div>
+              <div class="rate-after"><div class="rate-label-text" style="color:var(--future-color);">R10.10〜（予定）</div><div class="rate-num" style="color:var(--future-color);">週10時間〜</div></div>
+              <div class="rate-note">が加入対象に</div>
+            </div>
+            <div class="impact-points">
+              <div class="impact-point neutral"><i class="fas fa-circle"></i><span>週10〜19時間のパート・アルバイトを多く抱える事業所は、将来の保険料負担増加を見越して今のうちに影響人数を把握しておきましょう。</span></div>
+              <div class="impact-point neutral"><i class="fas fa-circle"></i><span>制度対応のシステム変更や周知には時間がかかります。早めの情報収集を推奨します。</span></div>
+            </div>
+            <div class="info-box future" style="margin-top:12px;"><i class="fas fa-calendar-alt"></i><span>施行まで約2年半あります。弊所でも引き続き最新情報をお届けします。</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /all-acc-list -->
   </div>
 </section>
 
@@ -518,7 +694,7 @@ ul { list-style: none; }
     </div>
     <div class="checklist-wrap reveal">
       <div class="progress-header">
-        <div class="progress-text"><span id="checkedCount">0</span> / <span id="totalCount">7</span> 完了</div>
+        <div class="progress-text"><span id="checkedCount">0</span> / <span id="totalCount">9</span> 完了</div>
         <div class="progress-bar-wrap"><div class="progress-bar" id="progressBar"></div></div>
       </div>
 
@@ -533,39 +709,51 @@ ul { list-style: none; }
         <label class="cl-item" data-id="cl-2">
           <input type="checkbox" id="cl-2" />
           <span class="cl-custom-check"><i class="fas fa-check"></i></span>
-          <div class="cl-text"><strong>協会けんぽ加入の場合：介護保険料率を1.62%に変更する</strong><span>40歳以上65歳未満が対象 ／ 4月分給与計算前に設定変更</span></div>
-          <span class="cl-priority high">急ぎ</span>
+          <div class="cl-text"><strong>60歳以上の在職社員に在職老齢年金の改正内容を周知する</strong><span>支給停止基準額が月65万円に引き上げ ／ 就労継続の意向を確認</span></div>
+          <span class="cl-priority mid">4月中</span>
         </label>
         <label class="cl-item" data-id="cl-3">
           <input type="checkbox" id="cl-3" />
           <span class="cl-custom-check"><i class="fas fa-check"></i></span>
-          <div class="cl-text"><strong>健保組合加入の場合：組合の令和8年度保険料率通知を確認する</strong><span>組合ごとに料率・改定時期が異なります</span></div>
-          <span class="cl-priority high">急ぎ</span>
+          <div class="cl-text"><strong>101人以上の企業：女性管理職比率・男女賃金差異の公表準備をする</strong><span>改正女性活躍推進法 ／ 施行後最初の事業年度終了後おおむね3か月以内に公表</span></div>
+          <span class="cl-priority mid">4月〜</span>
         </label>
         <label class="cl-item" data-id="cl-4">
           <input type="checkbox" id="cl-4" />
           <span class="cl-custom-check"><i class="fas fa-check"></i></span>
-          <div class="cl-text"><strong>60歳以上の在職社員に在職老齢年金の改正内容を周知する</strong><span>支給停止基準額が月65万円に引き上げ ／ 就労継続の意向を確認</span></div>
-          <span class="cl-priority mid">4月中</span>
+          <div class="cl-text"><strong>治療と就業の両立支援体制の整備を検討する（努力義務）</strong><span>相談窓口の設置・休暇制度の整備など ／ 産業保健総合支援センターへ無料相談も可</span></div>
+          <span class="cl-priority low">確認</span>
+        </label>
+        <label class="cl-item" data-id="cl-5">
+          <input type="checkbox" id="cl-5" />
+          <span class="cl-custom-check"><i class="fas fa-check"></i></span>
+          <div class="cl-text"><strong>障害者法定雇用率2.7%（R8.7〜）への対応を確認する</strong><span>37.5人以上の事業所が対象 ／ 未達成の場合は採用計画の見直し</span></div>
+          <span class="cl-priority mid">7月前</span>
+        </label>
+        <label class="cl-item" data-id="cl-6">
+          <input type="checkbox" id="cl-6" />
+          <span class="cl-custom-check"><i class="fas fa-check"></i></span>
+          <div class="cl-text"><strong>カスタマーハラスメント対策を義務化に向けて整備する（R8.10〜）</strong><span>方針の明確化・相談窓口設置・就業規則への記載 ／ 全業種・全規模が対象</span></div>
+          <span class="cl-priority mid">10月前</span>
         </label>
       </div>
 
       <div class="checklist-group">
         <div class="cl-group-title future"><i class="fas fa-calendar-alt"></i> 今後の予定改正 ─ 今のうちに把握・準備を</div>
-        <label class="cl-item" data-id="cl-5">
-          <input type="checkbox" id="cl-5" />
+        <label class="cl-item" data-id="cl-7">
+          <input type="checkbox" id="cl-7" />
           <span class="cl-custom-check"><i class="fas fa-check"></i></span>
           <div class="cl-text"><strong>週10〜19時間のパート・アルバイト数を把握しておく</strong><span>雇用保険 週10時間適用拡大は令和10年10月予定 ／ 影響人数を今のうちに試算</span></div>
           <span class="cl-priority prep">R10年対応</span>
         </label>
-        <label class="cl-item" data-id="cl-6">
-          <input type="checkbox" id="cl-6" />
+        <label class="cl-item" data-id="cl-8">
+          <input type="checkbox" id="cl-8" />
           <span class="cl-custom-check"><i class="fas fa-check"></i></span>
           <div class="cl-text"><strong>週20時間以上・月8.8万円以上のパート等の人数を把握しておく</strong><span>社会保険適用拡大は令和9年10月〜段階的施行予定 ／ 影響人数・コスト試算を推奨</span></div>
           <span class="cl-priority prep">R9年対応</span>
         </label>
-        <label class="cl-item" data-id="cl-7">
-          <input type="checkbox" id="cl-7" />
+        <label class="cl-item" data-id="cl-9">
+          <input type="checkbox" id="cl-9" />
           <span class="cl-custom-check"><i class="fas fa-check"></i></span>
           <div class="cl-text"><strong>社会保険加入増加による人件費増を中長期計画に組み込む</strong><span>事業主負担（約15〜16%）が増加する可能性 ／ 今のうちに経営者へ情報共有</span></div>
           <span class="cl-priority prep">早期確認</span>
@@ -684,6 +872,35 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const btn = document.querySelector('.hero-cta-btn');
   if (btn) { const rs = document.createElement('style'); rs.textContent = '@keyframes rpl{to{transform:scale(3);opacity:0}}'; document.head.appendChild(rs); btn.addEventListener('click', function(e) { const r = document.createElement('span'); const rc = this.getBoundingClientRect(); const sz = Math.max(rc.width, rc.height); Object.assign(r.style, {position:'absolute',width:sz+'px',height:sz+'px',top:(e.clientY-rc.top-sz/2)+'px',left:(e.clientX-rc.left-sz/2)+'px',borderRadius:'50%',background:'rgba(255,255,255,0.3)',transform:'scale(0)',animation:'rpl 0.5s ease-out forwards',pointerEvents:'none'}); this.style.position='relative'; this.style.overflow='hidden'; this.appendChild(r); setTimeout(()=>r.remove(),600); }); }
+
+  /* ========================================
+     アコーディオン
+     ======================================== */
+  document.querySelectorAll('.acc-trigger').forEach(trigger => {
+    const bodyId = trigger.getAttribute('aria-controls');
+    const body = document.getElementById(bodyId);
+    if (!body) return;
+    trigger.addEventListener('click', () => {
+      const expanded = trigger.getAttribute('aria-expanded') === 'true';
+      const nowOpen = !expanded;
+      trigger.setAttribute('aria-expanded', nowOpen);
+      if (nowOpen) {
+        body.hidden = false;
+        body.style.maxHeight = '0';
+        body.style.overflow = 'hidden';
+        body.style.transition = 'max-height 0.4s ease';
+        requestAnimationFrame(() => { body.style.maxHeight = body.scrollHeight + 'px'; });
+        body.addEventListener('transitionend', () => { body.style.maxHeight = ''; body.style.overflow = ''; }, { once: true });
+      } else {
+        body.style.maxHeight = body.scrollHeight + 'px';
+        body.style.overflow = 'hidden';
+        body.style.transition = 'max-height 0.35s ease';
+        requestAnimationFrame(() => { body.style.maxHeight = '0'; });
+        body.addEventListener('transitionend', () => { body.hidden = true; body.style.maxHeight = ''; body.style.overflow = ''; body.style.transition = ''; }, { once: true });
+      }
+    });
+  });
+
 });
 </script>
 </body>
