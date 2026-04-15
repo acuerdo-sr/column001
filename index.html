@@ -66,8 +66,8 @@ ul { list-style: none; }
 .hero-title .gold-text { color: var(--accent-light); }
 .hero-sub { font-size: clamp(0.95rem, 2vw, 1.1rem); color: rgba(255,255,255,0.75); margin-bottom: 44px; line-height: 2; }
 
-.hero-status-wrap { display: flex; align-items: stretch; justify-content: center; gap: 16px; margin-bottom: 40px; flex-wrap: wrap; }
-.hero-status-card { border-radius: var(--radius); padding: 22px 28px; min-width: 240px; flex: 0 0 auto; text-align: left; transition: transform var(--transition); }
+.hero-status-wrap { display: flex; align-items: stretch; justify-content: center; gap: 16px; margin-bottom: 40px; flex-wrap: nowrap; }
+.hero-status-card { border-radius: var(--radius); padding: 22px 28px; flex: 1 1 0; min-width: 0; max-width: 420px; text-align: left; transition: transform var(--transition); }
 .hero-status-card:hover { transform: translateY(-4px); }
 .card-confirmed { background: rgba(232,114,12,0.14); border: 1px solid rgba(232,114,12,0.4); border-top: 3px solid var(--accent); }
 .card-future    { background: rgba(24,95,165,0.14); border: 1px solid rgba(24,95,165,0.35); border-top: 3px solid #6baed6; }
@@ -345,24 +345,27 @@ ul { list-style: none; }
       <span class="gold-text">― 今やるべき対応と将来のコスト増 ―</span>
     </h1>
     <p class="hero-sub">
-      「施行確定」と「今後の予定」を正確に切り分けて解説。<br />
-      誤った情報で動く前に、まず事実を確認しましょう。
+      「施行確定」と「今後の予定」を正確に切り分けて解説します。
     </p>
 
     <div class="hero-status-wrap">
       <div class="hero-status-card card-confirmed">
-        <div class="status-label">✔ 令和8年4月1日 施行確定</div>
+        <div class="status-label">✔ 施行確定</div>
         <div class="status-items">
           <div class="status-item"><div class="status-dot"></div><span>雇用保険料率の引き下げ</span></div>
           <div class="status-item"><div class="status-dot"></div><span>在職老齢年金 基準額 65万円へ引き上げ</span></div>
-          <div class="status-item"><div class="status-dot"></div><span>協会けんぽ 介護保険料率 1.62%へ変更</span></div>
+          <div class="status-item"><div class="status-dot"></div><span>女性活躍推進法改正（情報公表義務の拡大）</span></div>
+          <div class="status-item"><div class="status-dot"></div><span>治療と就業の両立支援 努力義務化</span></div>
+          <div class="status-item"><div class="status-dot"></div><span>障害者法定雇用率 2.7%へ引き上げ</span></div>
+          <div class="status-item"><div class="status-dot"></div><span>カスタマーハラスメント対策の義務化</span></div>
+          <div class="status-item"><div class="status-dot"></div><span>国民年金保険料 育児免除制度スタート</span></div>
         </div>
       </div>
       <div class="hero-status-card card-future">
-        <div class="status-label">▷ 令和8年度以降の予定改正（要注目）</div>
+        <div class="status-label">▷ 予定改正（要注目）</div>
         <div class="status-items">
-          <div class="status-item"><div class="status-dot"></div><span>雇用保険 週10時間〜 適用拡大（令和10年10月予定）</span></div>
-          <div class="status-item"><div class="status-dot"></div><span>社会保険 短時間労働者への段階的適用拡大（令和9年10月〜）</span></div>
+          <div class="status-item"><div class="status-dot"></div><span>短時間労働者への社会保険適用拡大（令和9年10月〜 段階的実施）</span></div>
+          <div class="status-item"><div class="status-dot"></div><span>雇用保険 週10時間以上へ適用拡大（令和10年10月予定）</span></div>
         </div>
       </div>
     </div>
