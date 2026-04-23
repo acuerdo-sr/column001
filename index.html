@@ -90,7 +90,6 @@ ul { list-style: none; }
 .section { padding: 80px 0; }
 .confirmed-section { background: var(--white); }
 .checklist-section { background: var(--light-gray); }
-.ai-bot-section    { background: var(--white); }
 .cta-section       { background: var(--dark); }
 
 .section-header { text-align: center; margin-bottom: 48px; }
@@ -207,23 +206,6 @@ ul { list-style: none; }
 .reset-btn { display: flex; align-items: center; gap: 8px; margin-top: 24px; background: none; border: 1.5px solid var(--border); color: var(--text-light); padding: 10px 20px; border-radius: 6px; font-size: 0.88rem; cursor: pointer; transition: var(--transition); font-family: inherit; }
 .reset-btn:hover { border-color: var(--accent); color: var(--accent); }
 
-/* AI BOT */
-.ai-bot-card { max-width: 720px; margin: 0 auto; background: var(--white); border: 1px solid rgba(0,0,0,0.08); border-top: 4px solid var(--accent); border-radius: var(--radius); padding: 40px 40px 32px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
-.ai-bot-header { display: flex; align-items: center; gap: 18px; margin-bottom: 20px; }
-.ai-bot-icon-wrap { width: 56px; height: 56px; background: var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: var(--white); flex-shrink: 0; }
-.ai-bot-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 4px; }
-.ai-bot-title { font-size: 1.4rem; font-weight: 700; color: var(--dark); }
-.ai-bot-desc { font-size: 0.95rem; color: rgba(0,0,0,0.7); line-height: 1.85; margin-bottom: 28px; padding-bottom: 24px; border-bottom: 1px solid rgba(0,0,0,0.1); }
-.ai-bot-features { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 28px; }
-.ai-bot-feature { display: flex; align-items: center; gap: 8px; padding: 10px 16px; background: rgba(0,0,0,0.04); border: 1px solid rgba(0,0,0,0.08); border-radius: 50px; font-size: 0.88rem; color: rgba(0,0,0,0.85); flex: 1; min-width: 180px; }
-.ai-bot-feature i { color: var(--accent); flex-shrink: 0; }
-.ai-bot-steps { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; padding: 20px 24px; background: rgba(232,114,12,0.08); border: 1px solid rgba(232,114,12,0.2); border-radius: var(--radius-sm); margin-bottom: 20px; }
-.ai-bot-step { display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: rgba(0,0,0,0.85); font-weight: 600; flex: 1; min-width: 140px; }
-.ai-step-num { width: 28px; height: 28px; background: var(--accent); color: var(--white); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.82rem; font-weight: 900; flex-shrink: 0; }
-.ai-step-arrow { font-size: 0.85rem; color: var(--accent); flex-shrink: 0; }
-.ai-bot-footer { text-align: center; font-size: 0.85rem; color: rgba(0,0,0,0.55); display: flex; align-items: center; justify-content: center; gap: 8px; }
-.ai-bot-footer i { color: var(--accent); }
-
 /* CTA */
 .cta-box { max-width: 680px; margin: 0 auto; text-align: center; padding: 60px 40px; }
 .cta-logo img { width: 72px; height: 72px; border-radius: 50%; margin: 0 auto 20px; }
@@ -254,10 +236,6 @@ ul { list-style: none; }
   .hamburger { display: flex; }
   .hero-status-wrap { flex-direction: column; align-items: center; }
   .hero-status-card { min-width: 280px; width: 100%; max-width: 360px; }
-  .ai-bot-card { padding: 28px 20px 24px; }
-  .ai-bot-steps { flex-direction: column; align-items: flex-start; }
-  .ai-step-arrow { transform: rotate(90deg); align-self: center; }
-  .ai-bot-feature { min-width: 100%; }
 }
 @media (max-width: 640px) {
   .hero-cta-btn { padding: 16px 28px; font-size: 1rem; }
@@ -856,32 +834,6 @@ ul { list-style: none; }
         <div class="cta-badge"><i class="fas fa-clock"></i> 平日 9:00〜18:00</div>
         <div class="cta-badge"><i class="fas fa-map-marker-alt"></i> 福岡市中央区舞鶴1-2-8 セントラルビル4F</div>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- AI BOT -->
-<section class="section ai-bot-section">
-  <div class="container">
-    <div class="ai-bot-card reveal">
-      <div class="ai-bot-header">
-        <div class="ai-bot-icon-wrap"><i class="fas fa-robot"></i></div>
-        <div><div class="ai-bot-label">AI CHATBOT</div><h2 class="ai-bot-title">助成金相談AIボット</h2></div>
-      </div>
-      <p class="ai-bot-desc">「自社で使える助成金が知りたい」「要件をすぐ確認したい」—<br />弊所が監修した助成金専門AIが、24時間無料でお答えします。</p>
-      <div class="ai-bot-features">
-        <div class="ai-bot-feature"><i class="fas fa-lightbulb"></i><span>御社に合った助成金をご提案</span></div>
-        <div class="ai-bot-feature"><i class="fas fa-book-open"></i><span>要件・支給額をわかりやすく解説</span></div>
-        <div class="ai-bot-feature"><i class="fas fa-clipboard-check"></i><span>申請準備のアドバイスも</span></div>
-      </div>
-      <div class="ai-bot-steps">
-        <div class="ai-bot-step"><span class="ai-step-num">1</span>Chatworkでボットにメンション</div>
-        <i class="fas fa-chevron-right ai-step-arrow"></i>
-        <div class="ai-bot-step"><span class="ai-step-num">2</span>届いたリンクをクリック</div>
-        <i class="fas fa-chevron-right ai-step-arrow"></i>
-        <div class="ai-bot-step"><span class="ai-step-num">3</span>専用チャットで相談スタート</div>
-      </div>
-      <div class="ai-bot-footer"><i class="fas fa-infinity"></i> 24時間・何度でも・無料でご利用いただけます</div>
     </div>
   </div>
 </section>
